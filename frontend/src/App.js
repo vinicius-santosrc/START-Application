@@ -72,6 +72,7 @@ function IndexPage() {
       </section>
       <section className='banner-index'>
         <img src='./imgs/banner-index.webp'></img>
+        <button className='btn-index-mobile'><i>COMECE AGORA</i></button>
       </section>
       <section className='bottom-section-index'>
         <h2>PROGRESS</h2>
