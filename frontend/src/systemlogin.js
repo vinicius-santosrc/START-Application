@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import {getAuth, GoogleAuthProvider, signInWithPopup, signOut} from 'firebase/auth';
+import {getAuth, GoogleAuthProvider, FacebookAuthProvider, signInWithPopup, signOut} from 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBRSj_wRFtPyg7OJFCFXVbI9YUAyil2Pn4",
@@ -16,7 +16,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app)
 const provider = new GoogleAuthProvider();
 const signOutUser = () => {
-    auth.signOut()
+    signOut(auth)
     localStorage.removeItem('e')
     localStorage.removeItem('n')
     localStorage.removeItem('p')

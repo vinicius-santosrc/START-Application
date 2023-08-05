@@ -12,6 +12,17 @@ body {
 
 /* LOGIN PAGE */
 
+.landingpagebackpc {
+  position: absolute;
+  margin: auto;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+
 .content-login-page {
   margin: auto;
   width: 100%;
@@ -20,15 +31,18 @@ body {
 }
 
 .content-login-page h1 {
-  font-size: 60px;
+  font-size: 120px;
   color: #ffffff;
   text-align: center;
   letter-spacing: 3px;
+  font-weight: 700;
+  line-height: 110px;
 }
 
 .content-login-page p {
   margin-bottom: 5vh;
-  font-size: 30px;
+  font-size: 70px;
+  font-weight: 300;
 }
 
 .googlesignin, .facebooksignin {
@@ -72,17 +86,151 @@ body {
 .mail {
   margin-top: 20vh;
 }
+
 .mailmsg {
   margin-top: 5vh;
 }
 
+/* INDEX PAGE */
+
+.banner-index {
+  display: none;
+}
+
+.Start-LOGO {
+  cursor: pointer;
+}
+
+.App-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 40px;
+}
+
+.App-header h1 {
+  font-size: 23px;
+}
+
+.App-header i {
+  font-size: 23px;
+  margin-left: 15px;
+}
+
+.leftside {
+  align-items: center;
+  display: flex;
+}
+
+.App-header .leftside img {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+
+.banner-index-pc img {
+  width: 100%;
+}
+
+.bottom-section-index {
+  margin-top: 20px;
+  text-align: center;
+  padding: 0px 0;
+  margin: 0px 400px;
+  margin-bottom: 10vh;
+}
+
+.bottom-section-index h2 {
+  font-weight: 400;
+  letter-spacing: 3px;
+  padding: 50px 0px;
+  font-size: 35px;
+
+}
+
+.CardsChoices {
+  margin-top: 20px;
+  margin-bottom: 70px;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.Card {
+  background-color: #353535;
+  display: block;
+  padding: 50px 20px;
+  margin-right: 5px;
+  border-radius: 5px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1vh;
+  width: 250px;
+  position: relative;
+
+}
+
+.Card i {
+  font-size: 50px;
+  position: absolute;
+  top: -20px;
+  left: 15px;
+}
+
+.Cardinfos {
+  text-align: left;
+}
+
+.imgtop {
+  margin-left: 10px;
+}
+
+.openmenu {
+  display: none;
+}
+
+.menu-header {
+  display: none;
+}
+
+.iconsmiddleheader {
+  width: 35vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.iconsmiddleheader label{
+  font-weight: 600;
+  cursor: pointer;
+  transition: 500ms;
+  padding: 20px;
+}
+
+.iconsmiddleheader label:hover {
+  color: gray;
+  transition: 500ms;
+}
+
+
+
+
 @media screen and (max-width: 800px) {
 
   /* LOGIN PAGE */
+  .landingpagebackpc {
+    display: none;
+  }
+
   .landingpageback {
     display: block;
     position: absolute;
-    margin-top: -25vh;
+    margin-top: -40vh;
+    height: 100vh;
     width: 100vw;
     background-repeat: no-repeat;
   }
@@ -91,14 +239,14 @@ body {
     margin: auto;
     width: 100%;
     text-align: center;
-    margin-top: 35vh;
+    margin-top: 40vh;
   }
 
   .content-login-page h1 {
     font-size: 50px;
     color: #ffffff;
-    text-align: left;
-    margin-left: 30px;
+    text-align: center;
+    margin-left: 0px;
     letter-spacing: 3px;
     line-height: 30px;
   }
@@ -106,9 +254,11 @@ body {
   .content-login-page p {
     margin-bottom: 5vh;
     font-size: 29px;
-    margin-left: 30px;
-    text-align: left;
+    margin-left: 0px;
+    text-align: center;
     color: #FFFFFF;
+    font-weight: 300;
+    margin-bottom: 25vh;
   }
 
   .googlesignin, .facebooksignin {
@@ -144,11 +294,24 @@ body {
   }
 
   /* INDEX PAGE*/
+
+  .iconsmiddleheader {
+    display: none;
+  }
+
+  .openmenu {
+    display: block;
+  }
+
+  .banner-index {
+    display: block;
+  }
+
   .App-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 30px 40px;
+    padding: 30px 30px;
   }
 
   .App-header h1 {
@@ -157,7 +320,7 @@ body {
 
   .App-header i {
     font-size: 23px;
-    margin-left: 15px;
+    margin-left: 0px;
   }
 
   .leftside {
@@ -172,23 +335,31 @@ body {
   }
 
   .banner-index {
-    padding: 0px 40px;
+    padding: 0px 30px;
+
   }
 
   .banner-index img {
     width: 100%;
     transition: 300ms;
+    z-index: -1;
   }
 
   .banner-index img:hover {
-    transform: scale(1.03);
+    transform: scale(1.02);
     transition: 500ms;
+    z-index: -15;
+  }
+
+  .banner-index-pc {
+    display: none;
   }
 
   .bottom-section-index {
+    margin: 0;
     margin-top: 20px;
     text-align: center;
-    padding: 0px 40px;
+    padding: 0px 30px;
   }
 
   .bottom-section-index h2 {
@@ -202,13 +373,20 @@ body {
   }
 
   .Card {
-    background-color: #414141;
+    background-color: #353535;
     display: flex;
-    padding: 20px;
+    padding: 45px 25px;
     border-radius: 10px;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1vh;
+    width: 100%;
+    margin-bottom: 4vh;
+  }
+
+  .Card i {
+    position: absolute;
+    top: -30px;
   }
 
   .bottom-bar {
@@ -248,11 +426,13 @@ body {
     position: fixed;
     background-color: #1B1B1B;
     box-shadow: 0vw 1vw 30vw black;
-    padding: 30px 40px;
+    width: 100%;
+    padding: 40px 40px;
     height: 100vh;
     right: 0;
     animation: OpenMenu 0.3s ease-out;
     transition: 500ms;
+    z-index: 30;
   }
 
   @keyframes OpenMenu {
@@ -279,23 +459,45 @@ body {
     border-radius: 10px;
   }
 
+  .icons-middle-menu {
+    margin-top: 5vh;
+  }
+
+  .icons-middle-menu label {
+    display: block;
+    font-size: 20px;
+    border-left: 5px solid gray;
+    padding: 15px;
+    margin-bottom: 1vh;
+  }
+
   .Top-Menu {
     margin-top: 20px;
     display: flex;
     align-items: center;
   }
 
-  .Middle-Menu {
+  .Bottom-Menu {
     position: absolute;
-    bottom: 18vh;
+    bottom: 10vh;
     text-align: center;
   }
 
-  .Middle-Menu .btn-signout {
+  .Bottom-Menu .btn-signout {
     background-color: rgb(145, 0, 0);
     color: white;
     padding: 10px 30px;
     border-radius: 10px;
     text-align: center;
   }
+
+  .Cardinfos {
+    text-align: left;
+  }
+
+  .Cardinfos p {
+    font-size: 13px;
+  }
+
+
 }

@@ -11,6 +11,7 @@ import { auth, provider, signInWithPopup } from './systemlogin';
 import BottomBar from './components/BottomBar';
 import HeaderApp from './components/HeaderApp';
 
+
 function LoginPage() {
   const [i_email, setMail] = useState('')
   const [i_name, setName] = useState('')
@@ -37,11 +38,11 @@ function LoginPage() {
       {i_email && i_name && i_photo ? IndexPage() :
         <div className="content-login-page">
           <div>
-            <img className='landingpageback' src='./imgs/frame-landing-page-mobile.png'>
-            </img>
+            <img className='landingpagebackpc' src='./imgs/landingpage-pc-backingground.webp' />
+            <img className='landingpageback' src='./imgs/landingpage-cell-backingground.webp' />
           </div>
           <div className="title">
-            <h1>START</h1>
+            <h1><i>START</i></h1>
             <p><i>SEJA BEM VINDO (A) </i></p>
           </div>
           <div className='googlesignin' onClick={SignWithGoogle}>
@@ -65,58 +66,47 @@ function SignWithFacebook() {
 function IndexPage() {
   return (
     <div className="App">
-      <HeaderApp />
+      <HeaderApp/>
+      <section className='banner-index-pc'>
+        <img src='./imgs/banner-index-pc.webp'></img>
+      </section>
       <section className='banner-index'>
-        <img src='./imgs/banner-index.png'></img>
+        <img src='./imgs/banner-index.webp'></img>
       </section>
       <section className='bottom-section-index'>
         <h2>PROGRESS</h2>
         <div className='CardsChoices'>
           <div className='Card'>
-            <h3>ROTINA</h3>
+            <div className='Cardinfos'>
+              <h3>ROTINA</h3>
+              <p>Organize sua rotina de forma apropriada.</p>
+            </div>
             <i className="fa-solid fa-calendar"></i>
           </div>
           <div className='Card'>
-            <h3>ACADEMIA</h3>
+          <div className='Cardinfos'>
+              <h3>ACADEMIA</h3>
+              <p>Faça seus treinos.</p>
+            </div>
             <i className="fa-solid fa-dumbbell"></i>
           </div>
           <div className='Card'>
-            <h3>HIDRATAÇÃO</h3>
+          <div className='Cardinfos'>
+              <h3>HIDRATAÇÃO</h3>
+              <p>Configure do seu modo.</p>
+            </div>
             <i className="fa-solid fa-droplet"></i>
           </div>
           <div className='Card'>
-            <h3>PROLEPSE</h3>
+          <div className='Cardinfos'>
+              <h3>PROLEPSE</h3>
+              <p>Modo sem distrações.</p>
+            </div>
             <i className="fa-solid fa-bolt"></i>
           </div>
         </div>
       </section>
-      <div className='bottom-bar'>
-        <div className='icon'>
-          <i className="fa-solid fa-calendar"></i>
-          <h3>ROTINA</h3>
-        </div>
 
-        <div className='icon'>
-          <i className="fa-solid fa-dumbbell" onClick={GymPage}></i>
-          <h3>ACADEMIA</h3>
-        </div>
-
-        <div className='icon'>
-          <i className="fa-solid fa-droplet"></i>
-          <h3>HIDRATAÇÃO</h3>
-        </div>
-
-        <div className='icon'>
-          <i className="fa-solid fa-bolt"></i>
-          <h3>PROLEPSE</h3>
-        </div>
-
-        <div className='icon'>
-          <i className="fa-solid fa-gear"></i>
-          <h3>AJUSTES</h3>
-        </div>
-
-      </div>
     </div>
   );
 }
@@ -130,11 +120,11 @@ function GymPage() {
         </div>
         <div className='leftside'>
           <div>
-            <img src="https://www.nicepng.com/png/detail/73-730154_open-default-profile-picture-png.png" />
+            <img src="https://www.nicepng.com/png/detail/73-730154_open-default-profile-picture-png.webp" />
           </div>
         </div>
       </header>
-      <BottomBar />
+
     </div>
   );
 }
