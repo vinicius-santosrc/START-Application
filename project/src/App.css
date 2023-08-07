@@ -132,6 +132,9 @@ body {
 
 .banner-index-pc img {
   width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: -1;
 }
 
 .bottom-section-index {
@@ -143,12 +146,13 @@ body {
   margin: auto;
   margin-bottom: 10vw;
   justify-content: center;
+  margin-top: 80vh;
 }
 
 .bottom-section-index h2 {
   font-weight: 400;
   letter-spacing: 3px;
-  padding: 50px 0px;
+  padding: 4.5vw 0px;
   font-size: 35px;
 
 }
