@@ -138,8 +138,11 @@ body {
   margin-top: 20px;
   text-align: center;
   padding: 0px 0;
-  margin: 0px 400px;
-  margin-bottom: 10vh;
+  margin: 0px 0px;
+  width: 60vw;
+  margin: auto;
+  margin-bottom: 10vw;
+  justify-content: center;
 }
 
 .bottom-section-index h2 {
@@ -174,6 +177,13 @@ body {
 
 }
 
+.Card:hover {
+  background-color: white;
+  color: black;
+  transition: 500ms;
+  cursor: pointer;
+}
+
 .Card i {
   font-size: 50px;
   position: absolute;
@@ -198,10 +208,10 @@ body {
 }
 
 .iconsmiddleheader {
-  width: 35vw;
+  width: 50vw;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .iconsmiddleheader label{
@@ -304,6 +314,7 @@ body {
 
   .openmenu {
     display: block;
+    cursor: pointer;
   }
 
   .banner-index {
@@ -339,7 +350,7 @@ body {
 
   .banner-index {
     padding: 0px 00px;
-    margin-bottom: 96vw;
+    margin-bottom: 100vw;
   }
 
   .banner-index img {
@@ -353,7 +364,7 @@ body {
   .btn-index-mobile {
     display: block;
     position: absolute;
-    bottom: 60vh;
+    top: 75vw;
     width: 190px;
     height: 50px;
     background-color: white;
@@ -361,6 +372,7 @@ body {
     color: black;
     font-weight: 700;
     font-size: 17px;
+    cursor: pointer;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -385,8 +397,9 @@ body {
 
   .bottom-section-index {
     margin: 0;
-    margin-top: 20px;
+    margin-top: 20vw;
     text-align: center;
+    width: 100vw;
     padding: 0px 30px;
   }
 
@@ -398,6 +411,11 @@ body {
   .CardsChoices {
     margin-top: 20px;
     margin-bottom: 70px;
+  }
+  
+  .menu-header i.fa-xmark{
+    font-size: 30px;
+    cursor: pointer;
   }
 
   .Card {
@@ -415,38 +433,6 @@ body {
   .Card i {
     position: absolute;
     top: -30px;
-  }
-
-  .bottom-bar {
-    display: flex;
-    position: fixed;
-    z-index: 10;
-    background-color: #1B1B1B;
-    width: 100%;
-    padding: 25px 15px;
-    bottom: 0;
-    justify-content: space-between;
-    border-top: 1px solid rgb(59, 59, 59);
-  }
-
-  .bottom-bar .icon {
-    text-align: center;
-    font-size: 12px;
-    color: gray;
-  }
-
-  .bottom-bar .selected {
-    text-align: center;
-    font-size: 12px;
-    color: rgb(255, 255, 255);
-  }
-
-  .bottom-bar .icon h3 {
-    font-weight: 400;
-  }
-
-  .bottom-bar .icon i {
-    font-size: 20px;
   }
 
   .menu-header {
@@ -469,7 +455,7 @@ body {
     }
 
     100% {}
-  }
+  };
 
   .menu-header .Top-Menu h1 {
     font-size: 20px;
@@ -497,6 +483,14 @@ body {
     border-left: 5px solid gray;
     padding: 15px;
     margin-bottom: 1vh;
+    cursor: pointer;
+  }
+
+  .icons-middle-menu label:hover {
+    background-color: white;
+    border-left: none;
+    color: black;
+    transition: 500ms;
   }
 
   .Top-Menu {
@@ -517,6 +511,8 @@ body {
     padding: 10px 30px;
     border-radius: 10px;
     text-align: center;
+    border: 0;
+    font-size: 17px;
   }
 
   .Cardinfos {

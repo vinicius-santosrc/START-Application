@@ -8,9 +8,15 @@ import { auth, provider, signInWithPopup } from './systemlogin';
 
 
 /* ANOTHER IMPORTS*/
-import BottomBar from './components/BottomBar';
-import HeaderApp from './components/HeaderApp';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
+/* PAGES */
+import IndexPage from './pages/index'
+import SettingsPage from './pages/settings'
+import AcademiaPage from './pages/academia'
+import HidratacaoPage from './pages/hidratacao'
+import ProlepsePage from './pages/prolepse'
+import RotinaPage from './pages/rotina'
 
 function LoginPage() {
   const [i_email, setMail] = useState('')
@@ -35,11 +41,21 @@ function LoginPage() {
 
   return (
     <div>
-      {i_email && i_name && i_photo ? IndexPage() :
+      { i_email && i_name && i_photo ?
+      <BrowserRouter>
+          <Routes>
+              <Route path="/" element={<IndexPage />} />
+              <Route path="/academia" element={<AcademiaPage />} />
+              <Route path="/hidratacao" element={<HidratacaoPage />} />
+              <Route path="/prolepse" element={<ProlepsePage />} />
+              <Route path="/rotina" element={<RotinaPage />} />
+              <Route path="/settings" element={<SettingsPage />} />
+          </Routes>
+        </BrowserRouter> :
         <div className="content-login-page">
           <div>
-            <img className='landingpagebackpc' src='./imgs/landingpage-pc-backingground.webp' />
-            <img className='landingpageback' src='./imgs/landingpage-cell-backingground.webp' />
+            <img className='landingpagebackpc' src='./imgs/landingpage-pc-backingground.webp' alt='Background treino'/>
+            <img className='landingpageback' src='./imgs/landingpage-cell-backingground.webp' alt='Background treino'/>
           </div>
           <div className="title">
             <h1><i>START</i></h1>
@@ -47,7 +63,7 @@ function LoginPage() {
           </div>
           <div className='googlesignin' onClick={SignWithGoogle}>
             <div>
-              <img src="https://img.freepik.com/icones-gratis/google_318-258888.jpg"></img>
+              <img src="https://img.freepik.com/icones-gratis/google_318-258888.jpg" alt='Logo da Google'></img>
             </div>
             <div>
               <label>Entrar com o Google</label>
@@ -55,91 +71,8 @@ function LoginPage() {
           </div>
         </div>
       }
+      
     </div>
   );
 };
-
-function SignWithFacebook() {
-  alert('Facebook Pop-Up')
-}
-
-function IndexPage() {
-  return (
-    <div className="App">
-      <HeaderApp/>
-      <section className='banner-index-pc'>
-        <img src='./imgs/banner-index-pc.webp'></img>
-      </section>
-      <section className='banner-index'>
-        <img src='./imgs/banner-index.webp'></img>
-        <button className='btn-index-mobile'><i>COMECE AGORA</i></button>
-      </section>
-      <section className='bottom-section-index'>
-        <h2>PROGRESS</h2>
-        <div className='CardsChoices'>
-          <div className='Card'>
-            <div className='Cardinfos'>
-              <h3>ROTINA</h3>
-              <p>Organize sua rotina de forma apropriada.</p>
-            </div>
-            <i className="fa-solid fa-calendar"></i>
-          </div>
-          <div className='Card'>
-          <div className='Cardinfos'>
-              <h3>ACADEMIA</h3>
-              <p>Faça seus treinos.</p>
-            </div>
-            <i className="fa-solid fa-dumbbell"></i>
-          </div>
-          <div className='Card'>
-          <div className='Cardinfos'>
-              <h3>HIDRATAÇÃO</h3>
-              <p>Configure do seu modo.</p>
-            </div>
-            <i className="fa-solid fa-droplet"></i>
-          </div>
-          <div className='Card'>
-          <div className='Cardinfos'>
-              <h3>PROLEPSE</h3>
-              <p>Modo sem distrações.</p>
-            </div>
-            <i className="fa-solid fa-bolt"></i>
-          </div>
-        </div>
-      </section>
-
-    </div>
-  );
-}
-
-function GymPage() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <div className='Start-LOGO'>
-          <h1><i>START</i></h1>
-        </div>
-        <div className='leftside'>
-          <div>
-            <img src="https://www.nicepng.com/png/detail/73-730154_open-default-profile-picture-png.webp" />
-          </div>
-        </div>
-      </header>
-
-    </div>
-  );
-}
-
-function HidratacaoPage() {
-
-}
-
-function ProlepsePage() {
-
-}
-
-function SettingsPage() {
-
-}
-
 export default LoginPage;
