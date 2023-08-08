@@ -17,6 +17,9 @@ function gotoProlepse() {
   window.location.href = window.location.origin + '/prolepse'
 }
 
+function gotoHidratacao() {
+  window.location.href = window.location.origin + '/hidratacao'
+}
 
 function IndexPage() {
     return (
@@ -41,21 +44,21 @@ function IndexPage() {
             <i className="fa-solid fa-calendar"></i>
           </div>
           <div className='Card' onClick={gotoAcademia}>
-          <div className='Cardinfos'>
+            <div className='Cardinfos'>
               <h3>ACADEMIA</h3>
               <p>Faça seus treinos.</p>
             </div>
             <i className="fa-solid fa-dumbbell"></i>
           </div>
-          <div className='Card' onClick={gotoAcademia}>
-          <div className='Cardinfos'>
+          <div className='Card' onClick={gotoHidratacao}>
+            <div className='Cardinfos'>
               <h3>HIDRATAÇÃO</h3>
               <p>Configure do seu modo.</p>
             </div>
             <i className="fa-solid fa-droplet"></i>
           </div>
           <div className='Card' onClick={gotoProlepse}>
-          <div className='Cardinfos'>
+            <div className='Cardinfos'>
               <h3>PROLEPSE</h3>
               <p>Modo sem distrações.</p>
             </div>

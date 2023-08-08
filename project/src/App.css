@@ -234,6 +234,74 @@ body {
   display: none;
 }
 
+/* PAGE STYLE */
+
+.contents-page {
+  display: flex;
+  width: 100vw;
+}
+
+.left-side-page {
+  width: 50vw;
+}
+
+.right-side-page {
+  width: 50vw;
+}
+
+.background-page img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  object-position: 00px 00px;
+  filter: brightness(0.2);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.left-side-page {
+  text-align: center;
+  margin-top: 5vh;
+}
+
+.left-side-page i {
+  font-size: 60px;
+  cursor: default;
+}
+
+.left-side-page h1 {
+  font-size: 70px;
+  text-transform: uppercase;
+  font-weight: 800;
+  cursor: default;
+}
+
+.content-page-middle {
+  width: 50vw;
+  text-align: center;
+  margin-top: 5vh;
+}
+
+.button-info button{
+  background-color: white;
+  color: black;
+  border: none;
+  width: 400px;
+  font-size: 19px;
+  font-weight: 600;
+  height: 75px;
+  cursor: pointer;
+  margin-bottom: 1vh;
+  border-radius: 1vw;
+}
+
+.button-info p {
+  width: 30%;
+  margin: auto;
+  margin-bottom: 5vh;
+}
 
 
 @media screen and (max-width: 800px) {
@@ -435,8 +503,10 @@ body {
   }
 
   .Card i {
-    position: absolute;
-    top: -30px;
+    position: relative;
+    top: 0px;
+    right: 15px;
+    left: 0;
   }
 
   .menu-header {
@@ -521,9 +591,96 @@ body {
 
   .Cardinfos {
     text-align: left;
+    width: 70%;
   }
 
   .Cardinfos p {
     font-size: 13px;
   }
+
+  /* PAGE STYLE */
+
+  .contents-page {
+    display: flex;
+    width: 100vw;
+  }
+
+  .left-side-page {
+    width: 50vw;
+  }
+  
+  .title-page {
+    position: absolute;
+    top: 20vh;
+    left: 0;
+    right: 0;
+  }
+
+  .right-side-page {
+    width: 50vw;
+  }
+
+  .background-page img {
+    width: 100vw;
+    height: 105vw;
+    object-fit: cover;
+    object-position: 00px 00px;
+    filter: brightness(0.4);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+  }
+
+  .left-side-page {
+    text-align: center;
+    margin: auto;
+    width: 100%;
+    margin-top: 100vw;
+
+  }
+
+  .left-side-page i {
+    font-size: 60px;
+    cursor: default;
+  }
+
+  .left-side-page h1 {
+    font-size: 70px;
+    text-transform: uppercase;
+    font-weight: 800;
+    cursor: default;
+  }
+
+  .content-page-middle {
+    width: 100%;
+    text-align: center;
+    margin-top: 0vh;
+    padding: 0px 3vw;
+  }
+
+  .button-info {
+    width: 100%;
+  }
+
+  .button-info button{
+    background-color: white;
+    color: black;
+    border: none;
+    width: 100%;
+    
+    font-size: 19px;
+    font-weight: 600;
+    height: none;
+    cursor: pointer;
+    margin-bottom: 1vh;
+    border-radius: 1vw;
+  }
+
+  .button-info p {
+    width: 90%;
+    margin: auto;
+    margin-bottom: 5vh;
+  }
+
 }
