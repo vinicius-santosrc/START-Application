@@ -16,10 +16,10 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app)
 const provider = new GoogleAuthProvider();
 const signOutUser = () => {
-  auth.signOut()
-  localStorage.removeItem('e')
-  localStorage.removeItem('n')
-  localStorage.removeItem('p')
-  window.location.reload()
+  auth.signOut().then (
+    window.location.reload()
+  ).catch(e => {
+    alert('ERRO, CONSULTE UM DESENVOLVEDOR {erro: ' + e +  ' }')
+  })
 };
 export{auth, provider, signInWithPopup, signOutUser}

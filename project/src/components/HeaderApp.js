@@ -1,5 +1,5 @@
 import React from 'react';
-import { signOutUser } from '../systemlogin';
+import { signOutUser, auth } from '../systemlogin';
 /* PAGES */
 
 import '../pages/hidratacao';
@@ -47,9 +47,9 @@ function HeaderApp() {
             <div className="menu-header">
                 <i onClick={CloseMenu} className="fa-solid fa-xmark"></i>
                     <div className="Top-Menu">
-                        <img src={localStorage.getItem('p')} alt='Imagem do perfil do usuário' />
-                        <div><h1>Olá, {localStorage.getItem('n')}!</h1>
-                        <p>{localStorage.getItem('e')}</p></div>
+                        <img src={auth.currentUser.photoURL} alt='Imagem do perfil do usuário' />
+                        <div><h1>Olá, {auth.currentUser.displayName}!</h1>
+                        <p>{auth.currentUser.email}</p></div>
                     </div>
                     <div className='Middle-Menu'>
                         <div className='icons-middle-menu'>
@@ -93,7 +93,7 @@ function HeaderApp() {
                     <div className='leftside'>
                         <>
                             <i onClick={OpenMenu} className="fa-solid fa-bars openmenu"></i>
-                            <img onClick={gotoConfig} className='imgtop' alt='Imagem de perfil do usuário' src={localStorage.p} />
+                            <img onClick={gotoConfig} className='imgtop' alt='Imagem de perfil do usuário' src={auth.currentUser.photoURL} />
                         </>
                     </div>
                 </header>

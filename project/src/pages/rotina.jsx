@@ -7,7 +7,7 @@ function RotinaPage() {
             <HeaderApp />
             <div className='contents-page'>
                 <div className='background-page'>
-                    <img src="./imgs/rotina-page-banner.webp" />
+                    <img src="./imgs/rotina-page-banner.webp" alt='fundo academia'/>
                 </div>
                 <div className='left-side-page'>
                     <div className='title-page'>
