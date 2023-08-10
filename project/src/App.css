@@ -357,7 +357,65 @@ body {
 }
 
 .rotinasmobile {
-  display: none;
+  display: block;
+  background-color: #242424;
+  width: 500px;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.flex-box-rotinas {
+  display: flex;
+  flex-flow: row-reverse;
+  width: 100%;
+  padding: 0px 200px;
+  justify-content: space-between;
+  margin: auto;
+  position: relative;
+}
+
+.flex-box-rotinas .left-side-page{
+  width: 600px !important;
+
+}
+
+.flex-box-rotinas .content-page-middle {
+  width: 100%;
+  text-align: center;
+  margin-top: 5vh;
+}
+
+.db-rotinas {
+  margin-top: 1vh;
+  height: 38vh;
+  overflow: auto;
+}
+
+.rotina {
+  display: block;
+  margin: auto;
+  width: 95%;
+  justify-content: space-between;
+  list-style: none;
+  align-items: center;
+  background-color: rgb(76, 76, 76);
+  padding: 10px;
+  border-radius: 10px;
+  color: rgb(255, 255, 255);
+  margin-bottom: 1vh;
+  cursor: pointer;
+}
+
+.rotina:hover {
+  transition: 500ms;
+  background-color: rgb(54, 54, 54);
+}
+
+.rotina_item {
+  margin-top: 1vh;
+  padding: 10px;
+  background-color: #1B1B1B;
+  border-radius: 10px;
 }
 
 
@@ -698,7 +756,7 @@ body {
   
   .title-page {
     position: absolute;
-    top: 20vh;
+    top: 10vw;
     left: 0;
     right: 0;
   }
@@ -723,7 +781,7 @@ body {
     text-align: center;
     margin: auto;
     width: 100%;
-    margin-top: 100vw;
+    margin-top: 0vw;
 
   }
 
@@ -772,6 +830,7 @@ body {
 
   .rotinasmobile {
     display: block;
+    margin: auto;
     background-color: rgb(39, 39, 39);
     color: rgb(255, 255, 255);
     text-align: left;
@@ -779,5 +838,33 @@ body {
     margin-bottom: 5vh;
     margin-top: -5vh;
     border-radius: 10px;
+    width: 95%;
+    padding: 15px;
+
   }
+  .rotinas-pc {
+    display: none;
+  }
+
+  .flex-box-rotinas {
+    display: block;
+    width: 100%;
+    position: relative;
+    padding: 0px 0px;
+    justify-content: space-between;
+    margin: auto;
+    padding-top: 100vw;
+  }
+  
+  .flex-box-rotinas .left-side-page{
+    width: auto !important;
+  
+  }
+  
+  .flex-box-rotinas .content-page-middle {
+    width: auto;
+    text-align: center;
+    margin-top: 5vh;
+  }
+
 }
