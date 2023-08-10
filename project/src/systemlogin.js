@@ -16,7 +16,9 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app)
 const provider = new GoogleAuthProvider();
 const signOutUser = () => {
-  auth.signOut().then (
+
+  auth.signOut()
+  .then (
     window.location.reload()
   ).catch(e => {
     alert('ERRO, CONSULTE UM DESENVOLVEDOR {erro: ' + e +  ' }')

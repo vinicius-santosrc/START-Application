@@ -1,6 +1,10 @@
 import React from 'react';
 import HeaderApp from '../components/HeaderApp';
 
+function organizarrotina() {
+    
+}
+
 function RotinaPage() {
     return (
         <div className="App">
@@ -16,7 +20,7 @@ function RotinaPage() {
                     </div>
                     <div className="content-page-middle">
                         <div className='button-info'>
-                            <button>ORGANIZE SUA ROTINA</button>
+                            <button onClick={organizarrotina}>ORGANIZE SUA ROTINA</button>
                             <p>Crie sua rotina de acordo com as importâncias de cada tarefa. </p>
                         </div>
                         <div className='button-info'>

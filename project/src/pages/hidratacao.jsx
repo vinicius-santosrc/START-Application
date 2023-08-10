@@ -1,6 +1,7 @@
 import React from 'react';
 import HeaderApp from '../components/HeaderApp';
 
+
 function HidratacaoPage() {
     return (
         <div className="App">

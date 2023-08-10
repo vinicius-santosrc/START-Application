@@ -21,6 +21,8 @@ function gotoHidratacao() {
   window.location.href = window.location.origin + '/hidratacao'
 }
 
+
+
 function IndexPage() {
     return (
     <div className="App">

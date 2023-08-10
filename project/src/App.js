@@ -10,6 +10,7 @@ import { auth, provider, signInWithPopup } from './systemlogin';
 
 /* ANOTHER IMPORTS*/
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import {Loadscreen, Hideload} from './components/Loadscreen';
 
 /* PAGES */
 import IndexPage from './pages/index'
@@ -34,6 +35,7 @@ function LoginPage() {
 
   return (
     <div>
+      <Loadscreen />
       { i_ison ?
       <BrowserRouter>
         <Routes>
@@ -44,7 +46,9 @@ function LoginPage() {
             <Route path="/rotina" element={<RotinaPage />} />
             <Route path="/settings" element={<SettingsPage />} />
         </Routes>
-      </BrowserRouter> :
+        <Hideload />
+      </BrowserRouter> 
+      :
           <div className="content-login-page">
             <div>
               <img className='landingpagebackpc' src='./imgs/landingpage-pc-backingground.webp' alt='Background treino'/>
