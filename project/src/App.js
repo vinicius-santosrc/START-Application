@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 
 
 /* FIREBASE IMPORTS*/
-import { auth, provider, signInWithPopup } from './systemlogin';
+import { auth, provider, signInWithPopup, app } from './systemlogin';
 
 
 /* ANOTHER IMPORTS*/
@@ -27,11 +27,13 @@ function LoginPage() {
      window.location.reload()})
   };
 
+
   useEffect(() => {
     auth.onAuthStateChanged(function (u) {
       setUserOn(u)
     })
   })
+
   if(i_ison == null) {
     return (
       <div>

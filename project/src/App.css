@@ -356,6 +356,10 @@ body {
   }
 }
 
+.rotinasmobile {
+  display: none;
+}
+
 
 @media screen and (max-width: 800px) {
 
@@ -766,4 +770,14 @@ body {
     margin-bottom: 5vh;
   }
 
+  .rotinasmobile {
+    display: block;
+    background-color: rgb(39, 39, 39);
+    color: rgb(255, 255, 255);
+    text-align: left;
+    padding: 10px;
+    margin-bottom: 5vh;
+    margin-top: -5vh;
+    border-radius: 10px;
+  }
 }
