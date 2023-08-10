@@ -1,7 +1,6 @@
 import React from 'react';
 import HeaderApp from '../components/HeaderApp';
 
-
 function AcademiaPage() {
     return (
         <div className="App">

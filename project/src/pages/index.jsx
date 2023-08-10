@@ -25,6 +25,7 @@ function gotoHidratacao() {
 
 function IndexPage() {
     return (
+      
     <div className="App">
       <HeaderApp />
       <section className='banner-index-pc'>

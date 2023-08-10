@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import {getAuth, GoogleAuthProvider, signInWithPopup} from 'firebase/auth';
+import firebase from  'firebase/compat'
 
 const firebaseConfig = {
   apiKey: "AIzaSyBRSj_wRFtPyg7OJFCFXVbI9YUAyil2Pn4",
@@ -12,7 +13,7 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+const app = firebase.initializeApp(firebaseConfig);
 const auth = getAuth(app)
 const provider = new GoogleAuthProvider();
 const signOutUser = () => {
@@ -23,5 +24,13 @@ const signOutUser = () => {
   ).catch(e => {
     alert('ERRO, CONSULTE UM DESENVOLVEDOR {erro: ' + e +  ' }')
   })
-};
-export{auth, provider, signInWithPopup, signOutUser}
+}
+
+app.firestore()
+  .collection("rotinas")
+  .get()
+  .then(s => {
+    console.log(s)
+  })
+
+export{auth, provider, signInWithPopup, signOutUser, app}

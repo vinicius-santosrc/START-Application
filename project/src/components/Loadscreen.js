@@ -1,7 +1,6 @@
 import React from "react"
 
 function Loadscreen() {
-    
   return(
     <div className="loading">
         <h1>START</h1>

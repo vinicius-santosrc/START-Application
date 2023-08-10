@@ -1,8 +1,13 @@
 import React from 'react';
 import HeaderApp from '../components/HeaderApp';
 
+
 function organizarrotina() {
-    
+    alert('button organize sua rotina')
+}
+
+function buttonrotinaauto() {
+    alert('button rotina auto')
 }
 
 function RotinaPage() {
@@ -24,7 +29,7 @@ function RotinaPage() {
                             <p>Crie sua rotina de acordo com as importâncias de cada tarefa. </p>
                         </div>
                         <div className='button-info'>
-                            <button>ROTINA AUTOMÁTICA</button>
+                            <button onClick={buttonrotinaauto}>ROTINA AUTOMÁTICA</button>
                             <p>A aplicação irá desenvolver uma rotina otimizada para você. </p>
                         </div>
                     </div>
