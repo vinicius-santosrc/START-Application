@@ -418,7 +418,167 @@ body {
   border-radius: 10px;
 }
 
+.organizarsuarotina-tab {
+  position: fixed;
+  background-color: #242424;
+  z-index: 10;
+  width: 50%;
+  margin: auto;
+  border-radius: 10px;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  display: none;
+}
 
+.background {
+  position: fixed;
+  width: 100%;
+  height: 110%;
+  z-index: 9;
+  background-color: #2424245c;
+  margin-top: -12vh;
+  display: none;
+}
+
+
+.organizarrotina-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.organizarrotina-top i {
+  cursor: pointer;
+  font-size: 30px;
+}
+
+.organizarrotina-top h1 {
+  cursor: default;
+}
+
+.organizarrotina-top i:hover {
+  color: lime;
+  transition: 500ms;
+}
+
+.organizarrotina-buttons {
+  margin: 20px 10px;
+  padding: 30px 20px;
+  border-radius: 10px;
+  background-color: #1b1b1b;
+  display: block;
+  justify-content: space-between;
+}
+
+.organizarrotina-buttons input {
+  width: 100%;
+  height: 4.5vh;
+  outline: none;
+  padding-left: 5px;
+}
+
+.componentadd-organizerotina {
+  display: none;
+}
+
+.inputdiv {
+  display: block;
+}
+
+.createrotina {
+  margin: auto;
+  text-align: center;
+  padding: 0px 200px;
+}
+
+.createrotina button {
+  width: 100%;
+  height: 4vh;
+  font-size: 16px;
+  border: none;
+  background-color: rgb(255, 255, 255);
+  border-radius: 3px;
+  cursor: pointer;
+  text-transform: uppercase;
+  color: rgb(7, 7, 7);
+  font-weight: 600;
+}
+
+.createrotina button:hover {
+  transition: 500ms;
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+}
+
+.etapa2, .etapa3, .etapa4 {
+  display: none;
+}
+
+.createrotina {
+  display: none;
+}
+
+.stepanme {
+  margin-bottom: 2vh;
+  font-size: 21px;
+  color: rgb(50, 125, 205);
+}
+
+.prevnextbutton {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5vh;
+
+}
+
+.prevnextbutton button {
+  background-color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 2px solid white;
+}
+
+.prevnextbutton button:hover {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
+.rotinaedit {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 150%;
+  background-color: #242424;
+  margin-top: -12vh;
+  text-align: left;
+  z-index: 20;
+  padding: 10vw;
+}
+.rotinaedit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rotinaedit-header i {
+  font-size: 40px;
+  color: rgb(255, 98, 98);
+}
+
+.infoofeditrotina {
+  padding: 10px 50px;
+}
+
+.infoofeditrotina input{
+  width: 100%;
+  height: 4vh;
+  outline: none;
+}
 @media screen and (max-width: 800px) {
 
   /* LOGIN PAGE */
@@ -865,6 +1025,122 @@ body {
     width: auto;
     text-align: center;
     margin-top: 5vh;
+  }
+
+  .organizarsuarotina-tab {
+    position: fixed;
+    background-color: #242424;
+    z-index: 10;
+    width: 100%;
+    margin: auto;
+    border-radius: 0px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 45vw 20px;
+    display: none;
+  }
+  
+  .background {
+    position: fixed;
+    width: 100%;
+    height: 110%;
+    z-index: 9;
+    background-color: #2424245c;
+    margin-top: -12vh;
+    display: none;
+  }
+
+  .organizarrotina-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .organizarrotina-top i {
+    cursor: pointer;
+    font-size: 25px;
+  }
+  
+  .organizarrotina-top h1 {
+    cursor: default;
+    font-size: 22px;
+  }
+  
+  .organizarrotina-top i:hover {
+    color: lime;
+    transition: 500ms;
+  }
+  
+  .organizarrotina-buttons {
+    margin: 20px 00px;
+    padding: 30px 20px;
+    border-radius: 5px;
+    background-color: #1b1b1b;
+    display: block;
+    justify-content: space-between;
+  }
+  
+  .organizarrotina-buttons input {
+    width: 100%;
+    height: 4.5vh;
+    outline: none;
+    padding-left: 5px;
+  }
+  
+  .componentadd-organizerotina {
+    display: none;
+  }
+  
+  .inputdiv {
+    display: block;
+  }
+  
+  .createrotina {
+    margin: auto;
+    text-align: center;
+    width: 100%;
+    padding: 0px 0px;
+  }
+  
+  .createrotina button {
+    width: 100%;
+    height: 5vh;
+    font-size: 16px;
+    border: none;
+    background-color: rgb(255, 255, 255);
+    border-radius: 3px;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: rgb(7, 7, 7);
+    font-weight: 600;
+  }
+  
+  .createrotina button:hover {
+    transition: 500ms;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+  }
+
+  .stepanme {
+    margin-bottom: 2vh;
+    font-size: 21px;
+    color: rgb(50, 125, 205);
+  }
+
+  .prevnextbutton {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5vh;
+  }
+
+  .prevnextbutton button {
+    background-color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
   }
 
 }
