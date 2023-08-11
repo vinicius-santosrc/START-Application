@@ -552,9 +552,9 @@ body {
   display: none;
   position: fixed;
   width: 100%;
-  height: 150%;
+  height: 200%;
   background-color: #242424;
-  margin-top: -12vh;
+  margin-top: -23vh;
   text-align: left;
   z-index: 20;
   padding: 10vw;
@@ -571,14 +571,91 @@ body {
 }
 
 .infoofeditrotina {
-  padding: 10px 50px;
+  padding: 10px 10vw;
 }
 
 .infoofeditrotina input{
   width: 100%;
   height: 4vh;
   outline: none;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
 }
+
+.rotina-exist {
+  background-color: rgb(255, 255, 255);
+  padding: 20px;
+  border-radius: 10px;
+  width: 70%;
+  margin: auto;
+} 
+
+.componentrotinashow{
+  background-color: lightgray;
+  padding: 10px 10px;
+  border-radius: 0px;
+  color: rgb(30, 30, 30);
+  margin-bottom: 1vh;
+  border: 10px;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 1vh;
+}
+
+.rotinaedit-header i{
+  cursor: pointer;
+}
+
+.titleedit {
+  display: flex;
+}
+.titleedit h1 {
+  margin-left: 1vw;
+}
+
+.component {
+  display: none;
+}
+
+.buttonseditrotina {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-delete-rotine {
+  color: red;
+  background-color: white;
+  padding: 10px 50px;
+  border: none;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.btn-delete-rotine:hover {
+  background-color: red;
+  color:white;
+  transition: 500ms;
+}
+
+.btn-save-rotina {
+  color: limegreen;
+  background-color: white;
+  padding: 10px 50px;
+  border: none;
+  font-weight: 600;
+  border-radius: 10px;
+  margin-left: 3vw;
+  cursor: pointer;
+}
+
+.btn-save-rotina:hover {
+  background-color: limegreen;
+  color:rgb(73, 73, 73);
+  transition: 500ms;
+}
+
 @media screen and (max-width: 800px) {
 
   /* LOGIN PAGE */
@@ -1061,6 +1138,7 @@ body {
   .organizarrotina-top i {
     cursor: pointer;
     font-size: 25px;
+    color: red;
   }
   
   .organizarrotina-top h1 {
@@ -1143,4 +1221,65 @@ body {
     border-radius: 10px;
   }
 
+  .rotinaedit {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 200%;
+    background-color: #242424;
+    margin-top: -14vh;
+    text-align: left;
+    z-index: 20;
+    padding: 15vw 8vw;
+    
+  }
+  .rotinaedit-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .rotinaedit-header h1 {
+    margin-left: 1vw;
+  }
+  
+  .rotinaedit-header i {
+    font-size: 40px;
+    color: rgb(255, 98, 98);
+  }
+  
+  .infoofeditrotina {
+    padding: 30px 0px;
+  }
+  
+  .infoofeditrotina input{
+    width: 100%;
+    height: 4vh;
+    outline: none;
+  }
+
+  .titleedit {
+    align-items: center;
+  }
+
+  .componentrotinashow{
+    background-color: transparent;
+    padding: 10px 10px;
+    border-radius: 0px;
+    color: rgb(30, 30, 30);
+    margin-bottom: 1vh;
+    border-left: 1vw solid rgb(87, 143, 2);
+    width: 100%;
+    margin: auto;
+    margin-bottom: 1vh;
+    font-size: 11px;
+  }
+
+  .rotina-exist {
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    margin: auto;
+  } 
 }

@@ -132,14 +132,33 @@ if (!isnewrotine()) {
     app.firestore()
     .collection("rotinas")
     .doc(uid)
+    
     .get()
     .then(doc => {
         if(doc.exists) {
+            console.log(doc.data())
             document.querySelector('.rotinaedit').style.display = 'block'
             var rotinaatual = doc.data()
+            var rotina2 = rotinaatual.rotina
+
+            let output = ''
+
+            rotina2.forEach(i => {
+                console.log(rotina2.forEach(i => {
+                    console.log(i.name)
+                }))
+                output += `<div class="componentrotinashow">
+                    <h2>
+                    ${JSON.stringify(i)}
+                    </h2>
+                </div>`
+            })
             document.querySelector('.nameeditrotina').value = rotinaatual.name
             document.querySelector('.desceditrotina').value = rotinaatual.description
-        }
+            document.querySelector('.rotina-exist').innerHTML = output
+            }
+
+
         else {
             window.location.href="./rotina"
         }
@@ -159,6 +178,7 @@ function saverotina() {
     const year = data.getFullYear()
     const mounth = data.getMonth() + 1
     const day = data.getDate()
+   
         return {
             date: `${year}-${mounth}-${day}`,
             name: document.querySelector('.nameeditrotina').value,
@@ -259,6 +279,16 @@ function fecharorganizarrotina() {
     document.querySelector('#namerotine').value = ''
     document.querySelector('#descrotina').value = ''
 
+    document.querySelector('#namerotine').value = ''
+    document.querySelector('#descrotina').value = ''
+    document.querySelector('.componentadd_name').value = ''
+    document.querySelector('.start').value = ''
+    document.querySelector('.end').value = ''
+
+    canelcomponentrotina()
+    localStorage.setItem('componentesatuais', '')
+    document.querySelector('.rotinacriada').innerHTML = ''
+
     step = 1
 
     verifystep()
@@ -266,11 +296,18 @@ function fecharorganizarrotina() {
 
 }
 
+localStorage.setItem('componentesatuais', '')
+
 function createnewrotine() {
     const namerotine = document.querySelector('#namerotine')
-    const descrotine = document.querySelector('#descrotina')
+    let descrotine = document.querySelector('#descrotina')
+    var rotinajson = localStorage.getItem('componentesatuais')
 
-    if(namerotine.value == '' || descrotine.value == '') {
+    if(document.querySelector('#descrotina').value == '') {
+        descrotine.value = 'Sem descrição'
+    }
+
+    if(namerotine.value == '' || descrotine.value == '' || rotinajson == [] || localStorage.getItem('componentesatuais') == undefined) {
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
@@ -283,13 +320,14 @@ function createnewrotine() {
         const year = data.getFullYear()
         const mounth = data.getMonth() + 1
         const day = data.getDate()
+        var rotinajson = JSON.parse(localStorage.getItem('componentesatuais'))
         auth.onAuthStateChanged((u) => {
             let uidvar = u.uid
             const newrotine = {
                 date: `${year}-${mounth}-${day}`,
                 description: descrotine.value,
                 name: namerotine.value,
-                rotina: '[]',
+                rotina: rotinajson,
                 user: {
                     uid: uidvar
                 }
@@ -309,6 +347,39 @@ function createnewrotine() {
         })
         })
     }
+}
+function addcomponenttorotina() {
+    document.querySelector('.rotinatop').style.display = 'none'
+    document.querySelector('.component').style.display = 'block'
+}
+
+function canelcomponentrotina() {
+    document.querySelector('.rotinatop').style.display = 'block'
+    document.querySelector('.component').style.display = 'none'
+}
+let componentejson = []
+
+function addtorotineatual() {
+    let namecomponent = document.querySelector('.componentadd_name').value
+    let starthorario = document.querySelector('.start').value
+    let endhorario = document.querySelector('.end').value
+
+    componentejson
+    .push(
+        {
+            [namecomponent]: {
+                start: starthorario,
+                end: endhorario
+            }
+        }
+    )
+
+
+    namecomponent = ''
+    starthorario = ''
+    endhorario = ''
+    localStorage.setItem('componentesatuais', JSON.stringify(componentejson))
+    document.querySelector('.rotinacriada').innerHTML = JSON.stringify(componentejson).replace(/"/g, '')
 }
 
 let step = 1
@@ -423,41 +494,48 @@ function RotinaPage() {
                 <div className="background" onClick={fecharorganizarrotina}></div>
                 <div className='rotinaedit'>
                     <div className='rotinaedit-header'>
-                    
-                        <h1>EDITOR DE ROTINAS</h1>
+                        <div className='titleedit'>
+                            <i className="fa-solid fa-pen-ruler"></i>
+                            <h1>EDITOR DE ROTINAS</h1>
+                        </div>
                         <i onClick={fechareditrotina} className="fa-solid fa-xmark"></i>
                     </div>
                     <p>Edite sua rotina existente</p>
                        <div className='infoofeditrotina'>
                             <div className='itemofrotina'>
-                                <label>Nome da Rotina: </label>
+                                <label>Nome da Rotina: </label><br />
                                 <input className='nameeditrotina' placeholder='' /> <br />
                             </div>
                             <div className='itemofrotina'>
-                            <label>Descrição: </label>
+                            <label>Descrição: </label><br />
                             <input className='desceditrotina' placeholder='' /><br />
                             </div>
-                            <label>Rotina</label>
+                            <label>Rotina</label><br />
+                            <div className='rotina-exist'>
+                                
+                            </div>
                        </div>
-                    
-                        <button onClick={excluirrotina}>EXCLUIR ROTINA</button>
-                        <button onClick={salvarRotina}>SALVAR</button>
+                    <div className='buttonseditrotina'>
+                        <button className='btn-delete-rotine' onClick={excluirrotina}>EXCLUIR ROTINA</button>
+                        <button className='btn-save-rotina' onClick={salvarRotina}>SALVAR</button>
+                    </div>
+                        
                 </div>
                 <div className='organizarsuarotina-tab'>
                 <div className='organizarrotina-top'>
-                    <h1>ORGANIZE SUA ROTINA</h1>
+                    <h1><i className="fa-solid fa-bookmark"></i> ORGANIZE SUA ROTINA</h1>
                     <i onClick={fecharorganizarrotina} className="fa-solid fa-xmark"></i>
                     </div>
                 <p>Crie sua rotina de acordo com as importâncias de cada tarefa.</p>
                 <div className='organizarrotina-buttons'>
                    <div className='flexboxrotina'>
-                    <h1 className='stepanme'>ETAPA {step}</h1>
+                    <h1 className='stepanme'>Etapa {step}</h1>
                     <div className="etapa1">
                             <label>Digite um nome para sua rotina</label><br />
                             <input type="text" id="namerotine" placeholder='Nome' />
                         </div>
                         <div className="etapa2">
-                            <label>Descrição</label><br />
+                            <label>Descrição (Opcional)</label><br />
                             <input type="text" id="descrotina" placeholder='Exemplo: Foco nos estudos' />
                         </div>
                         <div className="etapa3">
@@ -469,8 +547,23 @@ function RotinaPage() {
                             </select>
                         </div>
                         <div className="etapa4">
-                            <label>Rotina</label><br />
-                            <button>ADICIONAR COMPONENTE</button>
+                            <div className='rotinatop'>
+                                <label>Rotina</label><br />
+                                <button onClick={addcomponenttorotina}>ADICIONAR COMPONENTE</button>
+                            </div>
+                            <div className='component'>
+                                <h1>Adicione o componente</h1>
+                                <input className='componentadd_name' placeholder='Nome do componente(Ex: Academia)' />
+                                <div className='horarios'>
+                                    <input type="number" className='start' placeholder='Horário de início (Ex: 10)' />
+                                    <input type="number" className='end' placeholder='Horário de término (Ex: 12)' />
+                                </div>
+                                <div className='rotinacriada'>
+
+                                </div>
+                                <button className='add' onClick={addtorotineatual}>Adicionar</button>
+                                <button className='cancel'onClick={canelcomponentrotina}>Cancelar</button>
+                            </div>
                         </div>
                         <div className='componentadd-organizerotina'>
                             <p>Nome do componente: </p><input type="text" placeholder='Nome' id="namecomp" />
