@@ -144,13 +144,12 @@ if (!isnewrotine()) {
             let output = ''
 
             rotina2.forEach(i => {
-                console.log(rotina2.forEach(i => {
-                    console.log(i.name)
-                }))
+
                 output += `<div class="componentrotinashow">
-                    <h2>
-                    ${JSON.stringify(i)}
-                    </h2>
+                    <div>
+                        <h2>[<span class="comecocomponent">${JSON.stringify(i.start).replace(/"/g, '')}</span> - <span class="fimcomponente">${JSON.stringify(i.end).replace(/"/g, '')}</span>]: ${JSON.stringify(i.name).replace(/"/g, '')}</h2>
+                    </div>
+                    <p>${JSON.stringify(i.desc).replace(/"/g, '')}</p>
                 </div>`
             })
             document.querySelector('.nameeditrotina').value = rotinaatual.name
@@ -183,7 +182,6 @@ function saverotina() {
             date: `${year}-${mounth}-${day}`,
             name: document.querySelector('.nameeditrotina').value,
             description: document.querySelector('.desceditrotina').value,
-            rotina: '',
             user: {
                 uid: app.auth().currentUser.uid
             }
@@ -273,30 +271,11 @@ function organizarrotina() {
 }
 
 function fecharorganizarrotina() {
-    document.querySelector('.organizarsuarotina-tab').style.display = 'none'
-    document.querySelector('.background').style.display = 'none'
-
-    document.querySelector('#namerotine').value = ''
-    document.querySelector('#descrotina').value = ''
-
-    document.querySelector('#namerotine').value = ''
-    document.querySelector('#descrotina').value = ''
-    document.querySelector('.componentadd_name').value = ''
-    document.querySelector('.start').value = ''
-    document.querySelector('.end').value = ''
-
-    canelcomponentrotina()
-    localStorage.setItem('componentesatuais', '')
-    document.querySelector('.rotinacriada').innerHTML = ''
-
-    step = 1
-
-    verifystep()
-
-
+    window.location.reload()
 }
 
 localStorage.setItem('componentesatuais', '')
+
 
 function createnewrotine() {
     const namerotine = document.querySelector('#namerotine')
@@ -356,30 +335,67 @@ function addcomponenttorotina() {
 function canelcomponentrotina() {
     document.querySelector('.rotinatop').style.display = 'block'
     document.querySelector('.component').style.display = 'none'
+    localStorage.setItem('componentesatuais', '')
+    document.querySelector('.rotinacriada').innerHTML = ''
 }
 let componentejson = []
 
 function addtorotineatual() {
     let namecomponent = document.querySelector('.componentadd_name').value
+    let desccomponent = document.querySelector('.componentadd_desc').value
     let starthorario = document.querySelector('.start').value
     let endhorario = document.querySelector('.end').value
+    
 
-    componentejson
-    .push(
-        {
-            [namecomponent]: {
-                start: starthorario,
-                end: endhorario
-            }
+    if(namecomponent == '' || starthorario == '' || endhorario == '') {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Insira todos os dados.',
+          })
+    }
+    else {
+        if(desccomponent == '') {
+            desccomponent = 'Sem descrição'
+            addrotina2()
         }
-    )
+        else {
+            addrotina2()
+        }
 
+        function addrotina2() {
+            componentejson
+            .push(
+                    {
+                        name: namecomponent,
+                        desc: desccomponent,
+                        start: starthorario,
+                        end: endhorario
+                    }
+            )
 
-    namecomponent = ''
-    starthorario = ''
-    endhorario = ''
-    localStorage.setItem('componentesatuais', JSON.stringify(componentejson))
-    document.querySelector('.rotinacriada').innerHTML = JSON.stringify(componentejson).replace(/"/g, '')
+            let output = ''
+            localStorage.setItem('componentesatuais', JSON.stringify(componentejson))
+            for(let i of JSON.parse(localStorage.getItem('componentesatuais'))) {
+                output += `
+                <div class="rotinalist-criada">
+                    <h2>${i.name}</h2>
+                    <p>${i.desc}</p>
+                    <p>${i.start} - ${i.end}</p>
+                    <button>REMOVER</button>
+                </div>
+                `
+            }
+
+            namecomponent = '';
+            desccomponent = '';
+            starthorario = '';
+            endhorario = '';
+
+            document.querySelector('.rotinacriada').innerHTML = output
+            
+            }
+    }
 }
 
 let step = 1
@@ -400,6 +416,7 @@ function backbutton() {
         document.querySelector('.stepbutton').style.display = 'block'
         document.querySelector('.stepanme').innerHTML = 'Etapa 1'
         document.querySelector('.createrotina').style.display = 'none'
+        document.querySelector('.backbutton').style.display = 'none'
         
     }
     else if (step == 2) {
@@ -410,6 +427,7 @@ function backbutton() {
         document.querySelector('.stepbutton').style.display = 'block'
         document.querySelector('.stepanme').innerHTML = 'Etapa 2'
         document.querySelector('.createrotina').style.display = 'none'
+        document.querySelector('.backbutton').style.display = 'block'
 
     }
     else if(step == 3) {
@@ -420,6 +438,7 @@ function backbutton() {
         document.querySelector('.stepbutton').style.display = 'block'
         document.querySelector('.stepanme').innerHTML = 'Etapa 3'
         document.querySelector('.createrotina').style.display = 'none'
+        document.querySelector('.backbutton').style.display = 'block'
 
     }
     else if(step == 4) {
@@ -430,6 +449,7 @@ function backbutton() {
         document.querySelector('.stepbutton').style.display = 'none'
         document.querySelector('.stepanme').innerHTML = 'Etapa 4'
         document.querySelector('.createrotina').style.display = 'block'
+        document.querySelector('.backbutton').style.display = 'block'
     }
 }
 
@@ -449,6 +469,7 @@ function nextstep() {
         document.querySelector('.stepbutton').style.display = 'block'
         document.querySelector('.stepanme').innerHTML = 'Etapa 1'
         document.querySelector('.createrotina').style.display = 'none'
+        document.querySelector('.backbutton').style.display = 'none'
         
     }
     else if (step == 2) {
@@ -459,6 +480,7 @@ function nextstep() {
         document.querySelector('.stepbutton').style.display = 'block'
         document.querySelector('.stepanme').innerHTML = 'Etapa 2'
         document.querySelector('.createrotina').style.display = 'none'
+        document.querySelector('.backbutton').style.display = 'block'
 
     }
     else if(step == 3) {
@@ -469,6 +491,7 @@ function nextstep() {
         document.querySelector('.stepbutton').style.display = 'block'
         document.querySelector('.stepanme').innerHTML = 'Etapa 3'
         document.querySelector('.createrotina').style.display = 'none'
+        document.querySelector('.backbutton').style.display = 'block'
 
     }
     else if(step == 4) {
@@ -479,6 +502,7 @@ function nextstep() {
         document.querySelector('.stepbutton').style.display = 'none'
         document.querySelector('.stepanme').innerHTML = 'Etapa 4'
         document.querySelector('.createrotina').style.display = 'block'
+        document.querySelector('.backbutton').style.display = 'block'
     }
     
         
@@ -549,27 +573,30 @@ function RotinaPage() {
                         <div className="etapa4">
                             <div className='rotinatop'>
                                 <label>Rotina</label><br />
-                                <button onClick={addcomponenttorotina}>ADICIONAR COMPONENTE</button>
+                                <button className='addcompbtn' onClick={addcomponenttorotina}>+ ADICIONAR COMPONENTE</button>
                             </div>
                             <div className='component'>
                                 <h1>Adicione o componente</h1>
                                 <input className='componentadd_name' placeholder='Nome do componente(Ex: Academia)' />
+                                <input className='componentadd_desc' placeholder='Descrição (Opcional)' />
                                 <div className='horarios'>
-                                    <input type="number" className='start' placeholder='Horário de início (Ex: 10)' />
-                                    <input type="number" className='end' placeholder='Horário de término (Ex: 12)' />
+                                    <p>Início: </p><input type="time" className='start'  />
+                                    <p>Término: </p><input type="time" className='end' />
                                 </div>
-                                <div className='rotinacriada'>
-
-                                </div>
+                                
                                 <button className='add' onClick={addtorotineatual}>Adicionar</button>
                                 <button className='cancel'onClick={canelcomponentrotina}>Cancelar</button>
                             </div>
+                            <div className='rotinacriada'>
+
+                                </div>
                         </div>
                         <div className='componentadd-organizerotina'>
                             <p>Nome do componente: </p><input type="text" placeholder='Nome' id="namecomp" />
                             <div>
                                 <input id="startcomp" placeholder='Início (Ex: 16)' />
                                 <input id="endcomp" placeholder='Término (Ex: 18)' />
+                                
                             </div>
                             <div>ADICIONAR</div>
                         </div>
