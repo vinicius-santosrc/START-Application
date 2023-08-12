@@ -580,8 +580,8 @@ function RotinaPage() {
                                 <input className='componentadd_name' placeholder='Nome do componente(Ex: Academia)' />
                                 <input className='componentadd_desc' placeholder='Descrição (Opcional)' />
                                 <div className='horarios'>
-                                    <p>Início: </p><input type="time" className='start'  />
-                                    <p>Término: </p><input type="time" className='end' />
+                                    <div><p>Início: </p><input type="time" className='start'  /></div>
+                                    <div><p>Término: </p><input type="time" className='end' /></div>
                                 </div>
                                 
                                 <button className='add' onClick={addtorotineatual}>Adicionar</button>

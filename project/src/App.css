@@ -685,6 +685,7 @@ body {
   text-align: center;
   font-weight: 600;
   cursor: pointer;
+  color: black;
 }
 
 .add {
@@ -693,6 +694,7 @@ body {
   border: none;
   border-radius: 10px;
   margin-top: 1vh;
+  color: black;
   cursor: pointer;
 }
 
@@ -704,6 +706,7 @@ body {
   margin-top: 1vh;
   margin-left: 1vw;
   cursor: pointer;
+  color: black;
 }
 
 .rotinacriada {
@@ -711,12 +714,15 @@ body {
   margin: auto;
   width: 100%;
   padding: 10px;
-  height: 15vh;
+  height: 18vh;
   overflow-y: auto;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+}
 
+.horarios {
+  display: flex;
 }
 
 .rotinalist-criada {
@@ -727,6 +733,10 @@ body {
   background-color: #242424;
   border-radius: 10px;
   font-size: 13px;
+}
+
+.start, .end {
+  color: black;
 }
 
 @media screen and (max-width: 800px) {
@@ -1294,6 +1304,7 @@ body {
     display: flex;
     justify-content: space-between;
     margin-bottom: 5vh;
+    color: white;
   }
 
   .prevnextbutton button {
@@ -1301,6 +1312,7 @@ body {
     border: none;
     padding: 10px;
     border-radius: 10px;
+    color: black;
   }
 
   .rotinaedit {
