@@ -40,6 +40,82 @@ function adicionarotinasexistentes(u) {
     })
 }
 
+function criarpostagem() {
+
+    const uid = getUrlRotina();
+    app.firestore()
+    .collection("rotinas")
+    .doc(uid)
+    
+    .get()
+    .then(doc => {
+        console.log(doc.data())
+        var rotinaatual = doc.data()
+        var rotina2 = rotinaatual.rotina
+        let postagem
+        const date = new Date
+        const ano = date.getFullYear()
+        const mes = date.getMonth()
+        const dia = date.getDate()
+        let horas = date.getHours()
+    
+        if(horas < 10) {
+          horas = '0' + horas
+        }
+
+        let output = ''
+
+            rotina2.forEach(i => {
+                output += `
+                        <tr>
+                            <td>[${JSON.stringify(i.start).replace(/"/g, '')} - ${JSON.stringify(i.end).replace(/"/g, '')}]</td>
+                            <td>${JSON.stringify(i.name).replace(/"/g, '')}</td>
+                            <td>${JSON.stringify(i.desc).replace(/"/g, '')}</td>
+                        <tr>
+                        `
+            })
+        postagem = `
+        <div class="component-rotina-compartilhada">
+            <h1>${rotinaatual.name} ( Compartilhada )</h2>
+            <p>${rotinaatual.description}</p>
+            <table class="tabela-rotina">
+                <tr>
+                    <td>HORÁRIO</td>
+                    <td>TAREFA</td>
+                    <td>DESCRIÇÃO</td>
+                </tr>
+        `  
+        +  
+        output
+        +
+        `
+            </table>
+        </div>
+        `
+    
+        const dataatual = ano.toString() + mes.toString() + dia.toString() + '.' + horas.toString()
+    
+        const newpost = {
+          userphoto: auth.currentUser.photoURL,
+          name: auth.currentUser.displayName,
+          uid: auth.currentUser.uid,
+          post: postagem,
+          date: dataatual,
+          created: dataatual
+        }
+
+        app.firestore()
+        .collection("publicacoes")
+        .add(newpost)
+        .then(s => {
+            Swal.fire('Publicado!', 'Você compartilhou seu treino', 'success')
+            window.location.reload()
+        })
+    
+    })
+    
+  }
+
 function showrotinas(rotinas) {
     const divrotinas = document.querySelector('.db-rotinas')
     
@@ -538,6 +614,9 @@ function RotinaPage() {
                             <div className='rotina-exist'>
                                 
                             </div>
+                       </div>
+                       <div className='btn-share-div'>
+                        <button className='btn-share-rotina' onClick={criarpostagem} >COMPARTILHAR NO FEED</button>
                        </div>
                     <div className='buttonseditrotina'>
                         <button className='btn-delete-rotine' onClick={excluirrotina}>EXCLUIR ROTINA</button>
