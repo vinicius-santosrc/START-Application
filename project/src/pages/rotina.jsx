@@ -46,7 +46,6 @@ function criarpostagem() {
     app.firestore()
     .collection("rotinas")
     .doc(uid)
-    
     .get()
     .then(doc => {
         console.log(doc.data())
@@ -74,24 +73,6 @@ function criarpostagem() {
                         <tr>
                         `
             })
-        postagem = `
-        <div class="component-rotina-compartilhada">
-            <h1>${rotinaatual.name} ( Compartilhada )</h2>
-            <p>${rotinaatual.description}</p>
-            <table class="tabela-rotina">
-                <tr>
-                    <td>HORÁRIO</td>
-                    <td>TAREFA</td>
-                    <td>DESCRIÇÃO</td>
-                </tr>
-        `  
-        +  
-        output
-        +
-        `
-            </table>
-        </div>
-        `
     
         const dataatual = ano.toString() + mes.toString() + dia.toString() + '.' + horas.toString()
     
@@ -99,9 +80,14 @@ function criarpostagem() {
           userphoto: auth.currentUser.photoURL,
           name: auth.currentUser.displayName,
           uid: auth.currentUser.uid,
-          post: postagem,
+          curtidas: 0,
+          post: {
+            desc: rotinaatual.description,
+            name: rotinaatual.name,
+            uid: uid,
+          },
           date: dataatual,
-          created: dataatual
+          created: dataatual,
         }
 
         app.firestore()
@@ -208,29 +194,50 @@ if (!isnewrotine()) {
     app.firestore()
     .collection("rotinas")
     .doc(uid)
-    
+
     .get()
     .then(doc => {
         if(doc.exists) {
             console.log(doc.data())
-            document.querySelector('.rotinaedit').style.display = 'block'
             var rotinaatual = doc.data()
-            var rotina2 = rotinaatual.rotina
-
+            var rotinauser = rotinaatual.user.uid
             let output = ''
+            if(app.auth().currentUser.uid == rotinauser){ 
+                document.querySelector('.rotinaedit').style.display = 'block'
+                var rotina2 = rotinaatual.rotina
 
-            rotina2.forEach(i => {
+                rotina2.forEach(i => {
+    
+                    output += `<div class="componentrotinashow">
+                        <div>
+                            <h2>[<span class="comecocomponent">${JSON.stringify(i.start).replace(/"/g, '')}</span> - <span class="fimcomponente">${JSON.stringify(i.end).replace(/"/g, '')}</span>]: ${JSON.stringify(i.name).replace(/"/g, '')}</h2>
+                        </div>
+                        <p>${JSON.stringify(i.desc).replace(/"/g, '')}</p>
+                    </div>`
+                })
+                document.querySelector('.nameeditrotina').value = rotinaatual.name
+                document.querySelector('.desceditrotina').value = rotinaatual.description
+            }
+            else {
+                document.querySelector('.rotinaview').style.display = 'block'
+                var rotina2 = rotinaatual.rotina
+                document.querySelector('.App-header').style.background = `#1B1B1B`
 
-                output += `<div class="componentrotinashow">
-                    <div>
-                        <h2>[<span class="comecocomponent">${JSON.stringify(i.start).replace(/"/g, '')}</span> - <span class="fimcomponente">${JSON.stringify(i.end).replace(/"/g, '')}</span>]: ${JSON.stringify(i.name).replace(/"/g, '')}</h2>
-                    </div>
-                    <p>${JSON.stringify(i.desc).replace(/"/g, '')}</p>
-                </div>`
-            })
-            document.querySelector('.nameeditrotina').value = rotinaatual.name
-            document.querySelector('.desceditrotina').value = rotinaatual.description
+                rotina2.forEach(i => {
+    
+                    output += `<div class="componentrotinashow">
+                        <div>
+                            <h2>[<span class="comecocomponent">${JSON.stringify(i.start).replace(/"/g, '')}</span> - <span class="fimcomponente">${JSON.stringify(i.end).replace(/"/g, '')}</span>]: ${JSON.stringify(i.name).replace(/"/g, '')}</h2>
+                        </div>
+                        <p>${JSON.stringify(i.desc).replace(/"/g, '')}</p>
+                    </div>`
+                })
+                document.querySelector('.rotinaname-view').innerHTML = rotinaatual.name + ' (Compartilhada)'
+                document.querySelector('.rotinaname-description').innerHTML = rotinaatual.description
+                
+            }
             document.querySelector('.rotina-exist').innerHTML = output
+            document.querySelector('.rotinas-view-index').innerHTML = output
             }
 
 
@@ -304,7 +311,7 @@ function verifystep() {
         document.querySelector('.etapa1').style.display = 'block'
         document.querySelector('.etapa2').style.display = 'none'
         document.querySelector('.etapa3').style.display = 'none'
-        document.querySelector('.etapa4').style.display = 'none'
+        
         document.querySelector('.stepbutton').style.display = 'block'
         document.querySelector('.stepanme').innerHTML = 'Etapa 1'
         document.querySelector('.createrotina').style.display = 'none'
@@ -314,7 +321,7 @@ function verifystep() {
         document.querySelector('.etapa1').style.display = 'none'
         document.querySelector('.etapa2').style.display = 'block'
         document.querySelector('.etapa3').style.display = 'none'
-        document.querySelector('.etapa4').style.display = 'none'
+        
         document.querySelector('.stepbutton').style.display = 'block'
         document.querySelector('.stepanme').innerHTML = 'Etapa 2'
         document.querySelector('.createrotina').style.display = 'none'
@@ -324,20 +331,11 @@ function verifystep() {
         document.querySelector('.etapa1').style.display = 'none'
         document.querySelector('.etapa2').style.display = 'none'
         document.querySelector('.etapa3').style.display = 'block'
-        document.querySelector('.etapa4').style.display = 'none'
-        document.querySelector('.stepbutton').style.display = 'block'
-        document.querySelector('.stepanme').innerHTML = 'Etapa 3'
-        document.querySelector('.createrotina').style.display = 'none'
-
-    }
-    else if(step == 4) {
-        document.querySelector('.etapa1').style.display = 'none'
-        document.querySelector('.etapa2').style.display = 'none'
-        document.querySelector('.etapa3').style.display = 'none'
-        document.querySelector('.etapa4').style.display = 'block'
+        
         document.querySelector('.stepbutton').style.display = 'none'
-        document.querySelector('.stepanme').innerHTML = 'Etapa 4'
+        document.querySelector('.stepanme').innerHTML = 'Etapa 3'
         document.querySelector('.createrotina').style.display = 'block'
+
     }
 }
 
@@ -377,6 +375,8 @@ function createnewrotine() {
         const day = data.getDate()
         var rotinajson = JSON.parse(localStorage.getItem('componentesatuais'))
         auth.onAuthStateChanged((u) => {
+            let username = u.displayName
+            let useremail = u.email
             let uidvar = u.uid
             const newrotine = {
                 date: `${year}-${mounth}-${day}`,
@@ -384,7 +384,8 @@ function createnewrotine() {
                 name: namerotine.value,
                 rotina: rotinajson,
                 user: {
-                    uid: uidvar
+                    uid: uidvar,
+                    createdby: username + ' (' + useremail + ')'
                 }
         }
         app.firestore()
@@ -488,7 +489,7 @@ function backbutton() {
         document.querySelector('.etapa1').style.display = 'block'
         document.querySelector('.etapa2').style.display = 'none'
         document.querySelector('.etapa3').style.display = 'none'
-        document.querySelector('.etapa4').style.display = 'none'
+        
         document.querySelector('.stepbutton').style.display = 'block'
         document.querySelector('.stepanme').innerHTML = 'Etapa 1'
         document.querySelector('.createrotina').style.display = 'none'
@@ -499,7 +500,7 @@ function backbutton() {
         document.querySelector('.etapa1').style.display = 'none'
         document.querySelector('.etapa2').style.display = 'block'
         document.querySelector('.etapa3').style.display = 'none'
-        document.querySelector('.etapa4').style.display = 'none'
+        
         document.querySelector('.stepbutton').style.display = 'block'
         document.querySelector('.stepanme').innerHTML = 'Etapa 2'
         document.querySelector('.createrotina').style.display = 'none'
@@ -510,30 +511,20 @@ function backbutton() {
         document.querySelector('.etapa1').style.display = 'none'
         document.querySelector('.etapa2').style.display = 'none'
         document.querySelector('.etapa3').style.display = 'block'
-        document.querySelector('.etapa4').style.display = 'none'
-        document.querySelector('.stepbutton').style.display = 'block'
-        document.querySelector('.stepanme').innerHTML = 'Etapa 3'
-        document.querySelector('.createrotina').style.display = 'none'
-        document.querySelector('.backbutton').style.display = 'block'
-
-    }
-    else if(step == 4) {
-        document.querySelector('.etapa1').style.display = 'none'
-        document.querySelector('.etapa2').style.display = 'none'
-        document.querySelector('.etapa3').style.display = 'none'
-        document.querySelector('.etapa4').style.display = 'block'
+        
         document.querySelector('.stepbutton').style.display = 'none'
-        document.querySelector('.stepanme').innerHTML = 'Etapa 4'
+        document.querySelector('.stepanme').innerHTML = 'Etapa 3'
         document.querySelector('.createrotina').style.display = 'block'
         document.querySelector('.backbutton').style.display = 'block'
+
     }
 }
 
 function nextstep() {
-    if(step < 4) {
+    if(step < 3) {
         step += 1
     }
-    else if(step == 4) {
+    else if(step == 3) {
 
     }
 
@@ -541,7 +532,7 @@ function nextstep() {
         document.querySelector('.etapa1').style.display = 'block'
         document.querySelector('.etapa2').style.display = 'none'
         document.querySelector('.etapa3').style.display = 'none'
-        document.querySelector('.etapa4').style.display = 'none'
+        
         document.querySelector('.stepbutton').style.display = 'block'
         document.querySelector('.stepanme').innerHTML = 'Etapa 1'
         document.querySelector('.createrotina').style.display = 'none'
@@ -552,7 +543,7 @@ function nextstep() {
         document.querySelector('.etapa1').style.display = 'none'
         document.querySelector('.etapa2').style.display = 'block'
         document.querySelector('.etapa3').style.display = 'none'
-        document.querySelector('.etapa4').style.display = 'none'
+        
         document.querySelector('.stepbutton').style.display = 'block'
         document.querySelector('.stepanme').innerHTML = 'Etapa 2'
         document.querySelector('.createrotina').style.display = 'none'
@@ -563,22 +554,12 @@ function nextstep() {
         document.querySelector('.etapa1').style.display = 'none'
         document.querySelector('.etapa2').style.display = 'none'
         document.querySelector('.etapa3').style.display = 'block'
-        document.querySelector('.etapa4').style.display = 'none'
-        document.querySelector('.stepbutton').style.display = 'block'
-        document.querySelector('.stepanme').innerHTML = 'Etapa 3'
-        document.querySelector('.createrotina').style.display = 'none'
-        document.querySelector('.backbutton').style.display = 'block'
-
-    }
-    else if(step == 4) {
-        document.querySelector('.etapa1').style.display = 'none'
-        document.querySelector('.etapa2').style.display = 'none'
-        document.querySelector('.etapa3').style.display = 'none'
-        document.querySelector('.etapa4').style.display = 'block'
+        
         document.querySelector('.stepbutton').style.display = 'none'
-        document.querySelector('.stepanme').innerHTML = 'Etapa 4'
+        document.querySelector('.stepanme').innerHTML = 'Etapa 3'
         document.querySelector('.createrotina').style.display = 'block'
         document.querySelector('.backbutton').style.display = 'block'
+
     }
     
         
@@ -624,6 +605,26 @@ function RotinaPage() {
                     </div>
                         
                 </div>
+
+                <div className='rotinaview'>
+                    <div className='top-rotinaview'>
+                        <div>
+                            <i class="fa-solid fa-calendar-check"></i>
+                        </div>
+                        <div>
+                            <h1 className='rotinaname-view'></h1>
+                        </div>
+                    </div>
+                    <div className='top-bottom-rotinaview'>
+                        <p className='rotinaname-description'>Descrição</p>
+                    </div>
+                    <div className='middle-rotinaview'>
+                        <a href={window.location.origin + '/'}><i className="fa-solid fa-caret-left"></i> VOLTAR PARA PÁGINA INÍCIAL</a>
+                        <div className='rotinas-view-index'>
+                        </div>
+                    </div>
+                </div>
+
                 <div className='organizarsuarotina-tab'>
                 <div className='organizarrotina-top'>
                     <h1><i className="fa-solid fa-bookmark"></i> ORGANIZE SUA ROTINA</h1>
@@ -641,15 +642,8 @@ function RotinaPage() {
                             <label>Descrição (Opcional)</label><br />
                             <input type="text" id="descrotina" placeholder='Exemplo: Foco nos estudos' />
                         </div>
+                        
                         <div className="etapa3">
-                            <label>Importância</label><br />
-                            <select name="importancia" id="importancia" disabled>
-                                <option value="Baixa">Baixa</option>
-                                <option value="Média">Média</option>
-                                <option value="Alta">Alta</option>
-                            </select>
-                        </div>
-                        <div className="etapa4">
                             <div className='rotinatop'>
                                 <label>Rotina</label><br />
                                 <button className='addcompbtn' onClick={addcomponenttorotina}>+ ADICIONAR COMPONENTE</button>

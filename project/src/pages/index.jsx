@@ -7,6 +7,9 @@ import HeaderApp from '../components/HeaderApp';
 import { app, auth } from '../systemlogin';
 import { json } from 'react-router-dom';
 import Swal from 'sweetalert2'
+import toHtml from 'string-to-html';
+
+import { useState, useEffect } from 'react';
 
 
 function gotoRotina() {
@@ -26,61 +29,79 @@ function gotoHidratacao() {
 }
 
 
-function loadposts() {
-  let output = ''
-
+export const Loadposts = () => {
+  const [postsofusers, setPublic] = useState([]);
   app.firestore()
   .collection('publicacoes')
   .orderBy('date', 'desc')
   .get()
   .then(s => {
-    let publicacoes = s.docs.map(postagem => ({
-      ...postagem.data(),
-      docuid: postagem.id
-    }))
-    publicacoes.forEach((i) => {
-      output += `
-      <div class="posts">
-        <div class="toppost">
-          <div class="toppost-1">
-          <img src="${i.userphoto}" />
-            <div class="toppost-2">
-              <h1>${i.name}</h2>
+    const Publicacoes = async () => {
+      setPublic(
+        s.docs.map((postagens => ({
+          ...postagens.data(),
+          docuid: postagens.id
+      })))
+    )}
+    Publicacoes()
+  }, []);
+  return(
+    <div>
+      
+    {postsofusers.map(i => {
+      function gotoRotina() {
+        window.location.href= window.location.origin + '/rotina?uid=' + i.post.uid
+      }
+      function deletethispost() {
+        app.firestore()
+        .collection('publicacoes')
+        .doc(i.docuid)
+        .delete()
+        .then(
+          Swal.fire(
+            'Deletada!',
+            'Publicação excluída com sucesso.',
+            'success'
+          )
+        )
+      }
+      return(
+        <div className="posts">
+        <div className="toppost">
+          <div className="toppost-1">
+          <img src={i.userphoto} />
+            <div className="toppost-2">
+              <h1>{i.name}</h1>
               </div>
           </div>
           <div>
-            ${i.uid == app.auth().currentUser.uid ? '<i class="fa-solid fa-trash"></i>' : '<i></i>'}
+            {i.uid == app.auth().currentUser.uid ? <i onClick={deletethispost} className="fa-solid fa-trash"></i> : <i></i>}
           </div>
         </div>
-        <div class="middle-post">
-          <p>${i.post}</p>
+        <div className="middle-post" onClick={
+          gotoRotina
+        }>
+        <div className="component-rotina-compartilhada">
+          <h1>{i.post.name}</h1>
+           <p>{i.post.desc}</p>
+           <table className="tabela-rotina">
+              <button><i className="fa-solid fa-list"></i> VISUALIZAR A ROTINA COMPARTILHADA</button>
+            </table>
+          </div>        
         </div>
-        <div class="bottom-post">
+        <div className="bottom-post">
         <div>
-          <button class="curtirrotina"><i class="fa-regular fa-heart"></i> ${i.curtidas}</button>
-          <button class="saverotina"><i class="fa-solid fa-floppy-disk"> </i></button>
-       </div>
+          <button className="curtirrotina"><i className="fa-regular fa-heart"></i> {i.curtidas}</button>
+          <button className="saverotina"><i className="fa-solid fa-floppy-disk"> </i></button>
+      </div>
         </div>
         
-      </div>`
-    })
-    if(window.location.href == window.location.origin + '/') {
-      document.querySelector('.feed-posts').innerHTML = output
-      
-      function observemsg(callback) {
-        app.firestore()
-        .collection('publicacoes').onSnapshot(callback)
-      }
-
-      observemsg()
-    }
-    
-    
-  })
-  
+      </div>
+      )
+    })}
+  </div>
+  )
 }
-
-loadposts()
 
 function abrirpostagem() {
   document.querySelector('.postagem-show').style.display = 'block'
@@ -136,7 +157,7 @@ function IndexPage() {
       <section className='bottom-section-index-2'>
         <h2>POSTAGENS</h2>
         <div className='feed-posts'>
-
+          <Loadposts />
         </div>
       </section>
 
