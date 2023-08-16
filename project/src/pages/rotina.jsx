@@ -202,6 +202,7 @@ if (!isnewrotine()) {
             var rotinaatual = doc.data()
             var rotinauser = rotinaatual.user.uid
             let output = ''
+
             if(app.auth().currentUser.uid == rotinauser){ 
                 document.querySelector('.rotinaedit').style.display = 'block'
                 var rotina2 = rotinaatual.rotina
@@ -221,8 +222,9 @@ if (!isnewrotine()) {
             else {
                 document.querySelector('.rotinaview').style.display = 'block'
                 var rotina2 = rotinaatual.rotina
+                var rotinauser = rotinaatual.user.uid
+                console.log(rotinauser)
                 document.querySelector('.App-header').style.background = `#1B1B1B`
-
                 rotina2.forEach(i => {
     
                     output += `<div class="componentrotinashow">
@@ -244,6 +246,7 @@ if (!isnewrotine()) {
         else {
             window.location.href="./rotina"
         }
+        
     })
     .catch((e) => {
         alert('ERRO: ' + e)
@@ -459,7 +462,6 @@ function addtorotineatual() {
                     <h2>${i.name}</h2>
                     <p>${i.desc}</p>
                     <p>${i.start} - ${i.end}</p>
-                    <button>REMOVER</button>
                 </div>
                 `
             }

@@ -310,6 +310,19 @@ body {
   border-radius: 1vw;
 }
 
+.button-info-ativar button{
+  background-color: #B0FF09;
+  color: black;
+  border: none;
+  width: 400px;
+  font-size: 19px;
+  font-weight: 600;
+  height: 75px;
+  cursor: pointer;
+  margin-bottom: 1vh;
+  border-radius: 1vw;
+}
+
 .button-info p {
   width: 30%;
   margin: auto;
@@ -383,6 +396,14 @@ body {
   width: 100%;
   padding: 0px 200px;
   justify-content: space-between;
+  margin: auto;
+  position: relative;
+}
+
+.block-box-rotinas {
+  display: block;
+  width: 100%;
+  justify-content: center;
   margin: auto;
   position: relative;
 }
@@ -1005,6 +1026,66 @@ body {
   margin-bottom: 1vh;
 }
 
+.account-page {
+  margin: auto;
+  text-align: center;
+  margin-top: 5vh;
+}
+
+.account-page img {
+  width: 150px;
+  border-radius: 150px;
+}
+
+.account-page h1 {
+  font-size: 25px;
+}
+
+.account-page p {
+  color: gray;
+  
+}
+
+.options-account-page {
+  margin: auto;
+  text-align: left;
+  background-color: rgb(48, 48, 48);
+  border-radius: 10px;
+  width: 40%;
+  margin-top: 5vh;
+  display: block;
+  padding: 5px 15px;
+}
+
+.options-account-page a{
+  margin-bottom: 1vh;
+  display: block;
+  text-decoration: none;
+  border-bottom: 1px solid rgb(77, 77, 77);
+
+  color: white;
+  padding: 15px 10px;
+}
+
+.options-account-page i {
+  background-color: rgb(77, 77, 77);
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  margin-right: 7px;
+}
+
+.options-account-page a:hover {
+  background-color: rgb(149, 145, 145);
+  border-radius: 20px;
+  transition: 500ms;
+}
+
+.options-account-page label {
+  cursor: pointer;
+  
+}
+
 
 @media screen and (max-width: 940px) {
   .backbutton {
@@ -1394,7 +1475,7 @@ body {
   }
 
   .left-side-page h1 {
-    font-size: 70px;
+    font-size: 50px;
     text-transform: uppercase;
     font-weight: 800;
     cursor: default;
@@ -1422,6 +1503,20 @@ body {
     height: none;
     cursor: pointer;
     margin-bottom: 1vh;
+    border-radius: 1vw;
+  }
+
+  .button-info-ativar button {
+    color: black;
+    border: none;
+    width: 100%;
+
+    font-size: 19px;
+    font-weight: 600;
+    height: none;
+    cursor: pointer;
+    margin-bottom: 1vh;
+    margin-top: 90vw;
     border-radius: 1vw;
   }
 
@@ -1869,6 +1964,46 @@ body {
     background-color: white;
     padding: 15px;
     border-radius: 10px;
+  }
+
+  .options-account-page {
+    margin: auto;
+    text-align: left;
+    background-color: rgb(48, 48, 48);
+    border-radius: 10px;
+    width: 90%;
+    margin-top: 5vh;
+    display: block;
+    padding: 5px 15px;
+  }
+  
+  .options-account-page a{
+    margin-bottom: 1vh;
+    display: block;
+    text-decoration: none;
+    border-bottom: 1px solid rgb(77, 77, 77);
+  
+    color: white;
+    padding: 15px 10px;
+  }
+  
+  .options-account-page i {
+    background-color: rgb(77, 77, 77);
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin-right: 7px;
+  }
+  
+  .options-account-page a:hover {
+    background-color: rgb(149, 145, 145);
+    border-radius: 20px;
+    transition: 500ms;
+  }
+  
+  .options-account-page label {
+    cursor: pointer;
+    
   }
 
 }
