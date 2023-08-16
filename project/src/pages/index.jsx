@@ -109,15 +109,43 @@ function abrirpostagem() {
 }
 
 function IndexPage() {
-    return (
+    let imgsrc
+    let imgsrcpc
+    let random = Math.floor(Math.random() * (6 - 1) + 1)
+    if(random == 1) {
       
+    imgsrc='./imgs/banner-index.webp'
+    imgsrcpc="./imgs/banner-index-pc.webp"
+      
+      
+    }
+    else if(random == 2) {
+      imgsrcpc='https://img.freepik.com/free-photo/3d-rendering-modern-loft-gym-fitness_105762-2020.jpg?w=1380&t=st=1692154465~exp=1692155065~hmac=2602c88ec2d51990045b28e3db1b0890e5fee45b6279f176ce0e38d1dc973668'
+      imgsrc='https://img.freepik.com/free-photo/3d-rendering-modern-loft-gym-fitness_105762-2020.jpg?w=1380&t=st=1692154465~exp=1692155065~hmac=2602c88ec2d51990045b28e3db1b0890e5fee45b6279f176ce0e38d1dc973668'
+    }
+    else if(random == 3) {
+      imgsrcpc='https://img.freepik.com/free-photo/cast-iron-dumbbell-weights_1048-11523.jpg?w=1380&t=st=1692155278~exp=1692155878~hmac=99a116287ab3f97ce1acca63f3a38d5bd16d4a9f9444a666e44e1c924af31591'
+      imgsrc='https://img.freepik.com/free-photo/cast-iron-dumbbell-weights_1048-11523.jpg?w=1380&t=st=1692155278~exp=1692155878~hmac=99a116287ab3f97ce1acca63f3a38d5bd16d4a9f9444a666e44e1c924af31591'
+    }
+    else if(random == 4) {
+      imgsrcpc="https://img.freepik.com/free-photo/unfocused-gym-with-big-windows_1203-1702.jpg?w=1380&t=st=1692155470~exp=1692156070~hmac=631982b219e64b3d448dcdccc459667dcbf10d9a279d2df028088add83b0fda1"
+      imgsrc="https://img.freepik.com/free-photo/unfocused-gym-with-big-windows_1203-1702.jpg?w=1380&t=st=1692155470~exp=1692156070~hmac=631982b219e64b3d448dcdccc459667dcbf10d9a279d2df028088add83b0fda1"
+    }
+    else if(random == 5) {
+      imgsrcpc="https://img.freepik.com/free-photo/close-up-black-dumbbell-gym_23-2147827464.jpg?w=740&t=st=1692155540~exp=1692156140~hmac=b55ae465ed0d9b93e4443ba99e095fb080b70e5ea86b9ae045950dabc3255af8"
+      imgsrc="https://img.freepik.com/free-photo/close-up-black-dumbbell-gym_23-2147827464.jpg?w=740&t=st=1692155540~exp=1692156140~hmac=b55ae465ed0d9b93e4443ba99e095fb080b70e5ea86b9ae045950dabc3255af8"
+    }
+
+    
+  
+    return (
     <div className="App">
       <HeaderApp />
       <section className='banner-index-pc'>
-        <img src='./imgs/banner-index-pc.webp' alt='Banner academia'></img>
+        <img src={imgsrcpc} alt='Banner academia'></img>
       </section>
       <section className='banner-index'>
-        <img src='./imgs/banner-index.webp' alt='Banner academia'></img>
+        <img src={imgsrc} alt='Banner academia'></img>
         <button onClick={gotoRotina} className='btn-index-mobile'><i>COMECE AGORA</i></button>
       </section>
   
