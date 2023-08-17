@@ -52,9 +52,7 @@ export const Loadposts = () => {
       function gotoRotina() {
         window.location.href= window.location.origin + '/rotina?uid=' + i.post.uid
       }
-      function gotoPost() {
-        window.location.href= window.location.origin + `/post?id=${i.docuid}`
-      }
+
       function deletethispost() {
         app.firestore()
         .collection('publicacoes')
@@ -70,7 +68,7 @@ export const Loadposts = () => {
       }
       return(
         <div className="posts">
-        <div className="toppost" onClick={gotoPost}>
+        <div className="toppost">
           <div className="toppost-1">
           <img src={i.userphoto} />
             <div className="toppost-2">
@@ -92,7 +90,7 @@ export const Loadposts = () => {
             </table>
           </div>        
         </div>
-        <div className="bottom-post" onClick={gotoPost}>
+        <div className="bottom-post">
         <div>
           <button className="curtirrotina"><i className="fa-regular fa-heart"></i> {i.curtidas}</button>
           <button className="saverotina"><i className="fa-solid fa-floppy-disk"> </i></button>

@@ -26,13 +26,27 @@ function LoginPage() {
   const [i_ison, setUserOn] = useState('')
   const SignWithGoogle =()=> {
     signInWithPopup(auth, provider).then((i) => {
-     window.location.reload()})
+      app.firestore()
+      .collection('users')
+      .doc(i.user.uid)
+      .set({
+        username: i.user.displayName,
+        name: i.user.displayName,
+        email: i.user.email,
+        phone: i.user.phoneNumber,
+        photoURL: i.user.photoURL,
+        uid: i.user.uid,
+      })
+      .then(
+        window.location.reload()
+      )
+    })
   };
 
 
   useEffect(() => {
     auth.onAuthStateChanged(function (u) {
-      setUserOn(u)
+      setUserOn(u)      
     })
   })
 
