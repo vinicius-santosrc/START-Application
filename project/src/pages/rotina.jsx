@@ -234,6 +234,7 @@ if (!isnewrotine()) {
                         <p>${JSON.stringify(i.desc).replace(/"/g, '')}</p>
                     </div>`
                 })
+                
                 document.querySelector('.rotinaname-view').innerHTML = rotinaatual.name + ' (Compartilhada)'
                 document.querySelector('.rotinaname-description').innerHTML = rotinaatual.description
                 
@@ -253,7 +254,6 @@ if (!isnewrotine()) {
         window.location.href="./rotina"
     })
 }
-
 function formatDate(date) {
     return new Date(date).toLocaleDateString('pt-br')
 }
@@ -706,7 +706,11 @@ function RotinaPage() {
                                 <p>Crie sua rotina de acordo com as importâncias de cada tarefa. </p>
                             </div>
                             <div className='button-info'>
-                                <button onClick={buttonrotinaauto}>ROTINA AUTOMÁTICA</button>
+                                <button onClick={
+                                    function gotoRotinaAuto() {
+                                        window.location.href=window.location.origin + '/rotina-auto'
+                                    }
+                                }>ROTINA AUTOMÁTICA</button>
                                 <p>A aplicação irá desenvolver uma rotina otimizada para você. </p>
                             </div>
                         </div>

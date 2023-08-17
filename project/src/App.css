@@ -1086,6 +1086,119 @@ body {
   
 }
 
+.App-RotinaAuto {
+  background-color: black;
+}
+
+.Flex-box-RotinasAuto {
+  display: flex;
+  padding: 10px 8vw;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.leftside-flex-rotinaauto p {
+  color: #70FF00;
+  font-size: 1.5vw;
+  cursor: default;
+  font-weight: 600;
+}
+.leftside-flex-rotinaauto h1:nth-child(2) {
+  font-weight: 200;
+  cursor: default;
+  font-size: 3.7vw;
+}
+
+.leftside-flex-rotinaauto h1:nth-child(3) {
+  font-weight: 800;
+  font-size: 6vw;
+  cursor: default;
+  line-height: 9vh;
+}
+
+.leftside-flex-rotinaauto button {
+  margin-top: 10vh;
+  background-color: white;
+  border: none;
+  font-size: 1.2vw;
+  cursor: pointer;
+  border: 1px solid white;
+  color: black;
+  transition: 500ms;
+  font-weight: 700;
+  letter-spacing: 3px;
+  box-shadow: 10px -10px 1px #70FF00;
+  padding: 20px 50px;
+}
+
+.leftside-flex-rotinaauto button:hover {
+  box-shadow: 0px 0px 0px transparent;
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  transition: 500ms;
+}
+
+.image-inner {
+  position: relative;
+  width: 30vw;
+  height: 65vh;
+  background: transparent;
+}
+
+.image-inner .corredor {
+  position: absolute;
+  width: 24vw;
+  z-index: 2;
+  background-color: transparent;
+  right: 0;
+
+}
+
+.corredorback {
+  position: absolute;
+  width: 35vw;
+
+  right: 0;
+  z-index: 0;
+  
+}
+
+.destac-h1-image {
+  position: absolute;
+  z-index: 1;
+  transform: rotateZ(90deg) rotateX(180deg) rotateY(180deg);
+
+  left: -9vw;
+  bottom: 50%;
+  top: 50%;
+  color: transparent;
+  -webkit-text-stroke: 3px white;
+  font-size: 5vw;
+}
+
+.rotinas-existentes-automaticas {
+  background-color: white;
+  width: 100%;
+  padding: 10px 8vw;
+  margin-top: 23vh;
+}
+
+.rotinas-existentes-automaticas h1 {
+  color: rgb(209, 209, 209);
+  font-size: 50px;
+  line-height: 40px;
+  cursor: default;
+}
+
+.rotinas-existentes-automaticas h1.selectedrotinas {
+  color: #FF5C00;
+  font-size: 50px;
+}
+
+.inner-button-mobile {
+  display: none;
+}
 
 @media screen and (max-width: 940px) {
   .backbutton {
@@ -2004,6 +2117,144 @@ body {
   .options-account-page label {
     cursor: pointer;
     
+  }
+
+  App-RotinaAuto {
+    background-color: black;
+  }
+  
+  .Flex-box-RotinasAuto {
+    display: block;
+    padding: 10px 8vw;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
+  
+  .leftside-flex-rotinaauto p {
+    color: #70FF00;
+    font-size: 20px;
+    cursor: default;
+    font-weight: 600;
+  }
+  .leftside-flex-rotinaauto h1:nth-child(2) {
+    font-weight: 200;
+    cursor: default;
+    font-size: 30px;
+  }
+  
+  .leftside-flex-rotinaauto h1:nth-child(3) {
+    font-weight: 700;
+    font-size: 60px;
+    cursor: default;
+    line-height: 50px;
+  }
+  
+  .leftside-flex-rotinaauto button {
+    margin-top: 10vh;
+    background-color: white;
+    border: none;
+    font-size: 1.2vw;
+    cursor: pointer;
+    border: 1px solid white;
+    color: black;
+    transition: 500ms;
+    font-weight: 700;
+    letter-spacing: 3px;
+    box-shadow: 10px -10px 1px #70FF00;
+    padding: 20px 50px;
+    display: none;
+  }
+
+  .inner-button-mobile {
+    display: block;
+  }
+
+  .inner-button-mobile button{
+
+    background-color: white;
+    border: none;
+    font-size: 20px;
+    text-align: center;
+    margin: auto;
+    margin-top: 10vw;
+    cursor: pointer;
+    z-index: 3;
+    border: 1px solid white;
+    color: black;
+    transition: 500ms;
+    font-weight: 700;
+    letter-spacing: 3px;
+    box-shadow: 10px -10px 1px #70FF00;
+    padding: 20px 50px;
+    display: block;
+  }
+  
+  .inner-button-mobile button:hover {
+    box-shadow: 0px 0px 0px transparent;
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+    transition: 500ms;
+  }
+  
+  .image-inner {
+    position: relative;
+    width: 100%;
+    height: 40vh;
+    background: transparent;
+    margin-top: 7vh;
+  }
+  
+  .image-inner .corredor {
+    position: absolute;
+    width: 70%;
+    z-index: 2;
+    background-color: transparent;
+    right: 0;
+  
+  }
+  
+  .corredorback {
+    position: absolute;
+    width: 100%;
+  
+    right: 0;
+    z-index: 0;
+    
+  }
+  
+  .destac-h1-image {
+    position: absolute;
+    z-index: 1;
+    transform: rotateZ(90deg) rotateX(180deg) rotateY(180deg);
+  
+    left: -1vw;
+    bottom: 25vw;
+    top: 25vw;
+    color: transparent;
+    -webkit-text-stroke: 1px white;
+    font-size: 12vw;
+  }
+  
+  .rotinas-existentes-automaticas {
+    background-color: white;
+    width: 100%;
+    padding: 30px 8vw;
+    margin-top: 17vh;
+  }
+  
+  .rotinas-existentes-automaticas h1 {
+    color: rgb(209, 209, 209);
+    font-size: 30px;
+    line-height: 30px;
+    text-align: center;
+    cursor: default;
+  }
+  
+  .rotinas-existentes-automaticas h1.selectedrotinas {
+    color: #FF5C00;
+    font-size: 30px;
   }
 
 }
