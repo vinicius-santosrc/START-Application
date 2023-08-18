@@ -19,7 +19,7 @@ function ProlepsePage() {
                         </div>
                         <div className="content-page-middle">
                             <div className='button-info-ativar'>
-                                <button onClick=''>COMEÇAR</button>
+                                <button onClick=''>EM BREVE</button>
                                 <p>Modo sem distrações: 
                                     <li>Tela em modo foco(congelada).</li>
                                     <li>Cronometro ativo para contabilizar tempo no modo foco.</li>

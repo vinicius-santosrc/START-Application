@@ -1170,8 +1170,8 @@ body {
   transform: rotateZ(90deg) rotateX(180deg) rotateY(180deg);
 
   left: -9vw;
-  bottom: 50%;
-  top: 50%;
+  bottom: 25vw;
+  top: 16vw;
   color: transparent;
   -webkit-text-stroke: 3px white;
   font-size: 5vw;
@@ -1199,6 +1199,98 @@ body {
 .inner-button-mobile {
   display: none;
 }
+
+.make-rotina {
+  position: absolute;
+  padding: 70px 9vw;
+  margin-top: 100px;
+  text-align: center;
+  z-index: 4;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 100vw;
+  height: 200%;
+  background-color: black;
+  display: none;
+}
+
+.make-rotina h1 {
+  cursor: default;
+  font-size: 60px;
+}
+
+.make-rotina .top-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3vh;
+}
+
+.make-rotina  a {
+  font-size: 25px;
+  text-decoration: none;
+  margin-bottom: 3vh;
+  color: rgb(103, 103, 103);
+  margin-left: 0vw;
+  margin-right: 80%;
+  text-align: left;
+  justify-content: left;
+}
+
+.make-rotina  a:hover {
+  background-color: lime;
+  color: black;
+  padding: 10px;
+  border-radius: 15%;
+  transition: 500ms;
+}
+
+.make-rotina i.fa-comment {
+  font-size: 100px;
+  cursor: default;
+  color: rgb(255, 255, 255);
+}
+
+.buttons-index {
+  margin-top: 5vh;
+  padding: 0vw 400px;
+}
+
+.addthis{
+  display: block;
+
+  margin-bottom: 2vh;
+  padding: 10px;
+  border: none;
+  background-color: white;
+  color: black;
+  font-size: 20px;
+  border-radius: 10px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.addtarefas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.addthis:hover{
+  background-color: black;
+  border: 1px solid white;
+  color: white;
+  transition: 500ms;
+ }
+
+ .question {
+  font-size: 20px;
+  padding-bottom: 1vh;
+  width: 40%;
+  margin: auto;
+  border-bottom: 1px solid white;
+ }
 
 @media screen and (max-width: 940px) {
   .backbutton {
@@ -2209,6 +2301,7 @@ body {
   .image-inner .corredor {
     position: absolute;
     width: 70%;
+    max-width: 55vw;
     z-index: 2;
     background-color: transparent;
     right: 0;
@@ -2218,6 +2311,7 @@ body {
   .corredorback {
     position: absolute;
     width: 100%;
+    max-width: 70vw;
   
     right: 0;
     z-index: 0;
@@ -2229,9 +2323,9 @@ body {
     z-index: 1;
     transform: rotateZ(90deg) rotateX(180deg) rotateY(180deg);
   
-    left: -1vw;
-    bottom: 25vw;
-    top: 25vw;
+    left: -5vw;
+    bottom: 25vh;
+    top: 15vh;
     color: transparent;
     -webkit-text-stroke: 1px white;
     font-size: 12vw;

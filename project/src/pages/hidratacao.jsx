@@ -18,7 +18,7 @@ function HidratacaoPage() {
                         </div>
                         <div className="content-page-middle">
                             <div className='button-info-ativar'>
-                                <button onClick=''>ATIVAR NOTIFICAÇÕES</button>
+                                <button onClick=''>EM BREVE</button>
                                 <p>Defina um horário para receber notificações para se hidratar.</p>
                             </div>
                         </div>
