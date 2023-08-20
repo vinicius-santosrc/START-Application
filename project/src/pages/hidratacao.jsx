@@ -12,32 +12,69 @@ import '../App.css';
 
 let date = new Date
 let hora = date.getHours()
-Notification.requestPermission().then(perm => {
-    if(perm === 'granted') {
-        if(hora % 2 == 0) {
-            if (cont != 1) {
-                let notification = new Notification('Hora de se hidratar 💧', {
-                    body: `Beba ${localStorage.getItem('water')}ml de água.`,
-                    icon: "favicon.ico"
+
+if(localStorage.getItem('notify') == 'true') {
+    Notification.requestPermission().then(perm => {
+        if(perm === 'granted') {
+            if(hora % 2 == 0) {
+                if (cont != 1) {
+                    let notification = new Notification('Hora de se hidratar 💧', {
+                        body: `Beba ${localStorage.getItem('water')}ml de água.`,
+                        icon: "favicon.ico"
+                    })
+                }
+                let cont = 1
+            }
+        }
+        else if (perm === 'denied') {
+            if(localStorage.getItem('ignoremsgnot') == 'true') {
+                
+            }
+            else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Parece que você desativou nossas notificações.',
+                    footer: '<a href="">Como eu posso resolver isso?</a>'
+                }).then(() => {
+                    localStorage.setItem('ignoremsgnot', 'true')
                 })
             }
-            let cont = 1
         }
-    }
-    else if (perm === 'denied') {
-
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Parece que você desativou nossas notificações.',
-                footer: '<a href="">Como eu posso resolver isso?</a>'
-            })
-        
-    }
-})
+    })
+}
 
 function ativarnotificacoes() {
-    
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: 'btn btn-success',
+          cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: true
+      })
+      
+      swalWithBootstrapButtons.fire({
+        title: 'Deseja ativar as notificações?',
+        text: "Você será notificado a cada 2 horas para tomar água.",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'ATIVAR',
+        cancelButtonText: 'CANCELAR',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+        localStorage.setItem('notify', 'true')
+          swalWithBootstrapButtons.fire(
+            'Sucesso!',
+            'Você ativou as notificações.',
+            'success'
+          )
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+        }
+      })
 }
 
 function desativarnotifications() {
