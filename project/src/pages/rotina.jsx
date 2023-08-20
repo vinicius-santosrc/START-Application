@@ -198,7 +198,7 @@ if (!isnewrotine()) {
     .get()
     .then(doc => {
         if(doc.exists) {
-            console.log(doc.data())
+
             var rotinaatual = doc.data()
             var rotinauser = rotinaatual.user.uid
             let output = ''
@@ -207,11 +207,11 @@ if (!isnewrotine()) {
                 document.querySelector('.rotinaedit').style.display = 'block'
                 var rotina2 = rotinaatual.rotina
 
-                rotina2.forEach(i => {
+                rotina2.map(i => {
     
                     output += `<div class="componentrotinashow">
                         <div>
-                            <h2>[<span class="comecocomponent">${JSON.stringify(i.start).replace(/"/g, '')}</span> - <span class="fimcomponente">${JSON.stringify(i.end).replace(/"/g, '')}</span>]: ${JSON.stringify(i.name).replace(/"/g, '')}</h2>
+                        <h2>[<span class="comecocomponent">${JSON.stringify(i.start).replace(/"/g, '')}</span> - <span class="fimcomponente">${JSON.stringify(i.end).replace(/"/g, '')}</span>]: ${JSON.stringify(i.name).replace(/"/g, '')}</h2>
                         </div>
                         <p>${JSON.stringify(i.desc).replace(/"/g, '')}</p>
                     </div>`
@@ -223,9 +223,9 @@ if (!isnewrotine()) {
                 document.querySelector('.rotinaview').style.display = 'block'
                 var rotina2 = rotinaatual.rotina
                 var rotinauser = rotinaatual.user.uid
-                console.log(rotinauser)
+
                 document.querySelector('.App-header').style.background = `#1B1B1B`
-                rotina2.forEach(i => {
+                rotina2.map(i => {
     
                     output += `<div class="componentrotinashow">
                         <div>
@@ -301,7 +301,7 @@ function update(updatevar) {
 }
 
 function fechareditrotina() {
-    ''
+    window.location.href='./rotina'
 }
 
 function showcomponentadd() {

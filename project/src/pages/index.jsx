@@ -47,7 +47,6 @@ export const Loadposts = () => {
   }, []);
   return(
     <div>
-      
     {postsofusers.map(i => {
       function gotoRotina() {
         window.location.href= window.location.origin + '/rotina?uid=' + i.post.uid
