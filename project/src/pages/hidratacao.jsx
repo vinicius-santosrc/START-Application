@@ -1,5 +1,55 @@
-import React from 'react';
+/* REACT IMPORTS*/
+import React, { useEffect, useState } from 'react';
+/* FIREBASE IMPORTS*/
+import { auth, provider, signInWithPopup, app } from '../systemlogin';
+
+/* ANOTHER IMPORTS*/
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HeaderApp from '../components/HeaderApp';
+import {Loadscreen, Hideload} from '../components/Loadscreen';
+import Swal from 'sweetalert2'
+import '../App.css';
+
+let date = new Date
+let hora = date.getHours()
+Notification.requestPermission().then(perm => {
+    if(perm === 'granted') {
+        if(hora % 2 == 0) {
+            if (cont != 1) {
+                let notification = new Notification('Hora de se hidratar 💧', {
+                    body: `Beba ${localStorage.getItem('water')}ml de água.`,
+                    icon: "favicon.ico"
+                })
+            }
+            let cont = 1
+        }
+    }
+    else if (perm === 'denied') {
+
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Parece que você desativou nossas notificações.',
+                footer: '<a href="">Como eu posso resolver isso?</a>'
+            })
+        
+    }
+})
+
+function ativarnotificacoes() {
+    
+}
+
+function desativarnotifications() {
+
+} 
+if(localStorage.getItem('water') == null) {
+    localStorage.setItem('water', 200)
+}
+
+function changewater () {
+    localStorage.setItem('water', document.querySelector('#quantwater').value)
+}
 
 function HidratacaoPage() {
     return (
@@ -18,8 +68,20 @@ function HidratacaoPage() {
                         </div>
                         <div className="content-page-middle">
                             <div className='button-info-ativar'>
-                                <button onClick=''>EM BREVE</button>
+                                <button onClick={ativarnotificacoes}>ATIVAR NOTIFICAÇÕES</button>
                                 <p>Defina um horário para receber notificações para se hidratar.</p>
+                                <p>Desejo receber notificações para beber {localStorage.getItem('water')}ml de água</p>
+                                <h2>Mudar quantidade de água: 
+                                <select onChange={changewater} name="" id="quantwater">
+                                    <option value="100">100ml</option>
+                                    <option value="200" selected>200ml (padrão)</option>
+                                    <option value="300">300ml</option>
+                                    <option value="400">400ml</option>
+                                    <option value="500">500ml</option>
+                                    <option value="700">700ml</option>
+                                    <option value="1000">1000ml</option>
+                                    </select>
+                                </h2>
                             </div>
                         </div>
                     </div>

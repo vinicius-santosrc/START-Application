@@ -301,8 +301,7 @@ function update(updatevar) {
 }
 
 function fechareditrotina() {
-    
-    window.location.href = './rotina'
+    ''
 }
 
 function showcomponentadd() {

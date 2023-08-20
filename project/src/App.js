@@ -20,7 +20,6 @@ import HidratacaoPage from './pages/hidratacao'
 import ProlepsePage from './pages/prolepse'
 import RotinaPage from './pages/rotina'
 import RotinaAuto from './pages/rotina-auto';
-import PostPage from './pages/post';
 
 function LoginPage() {
   const [i_ison, setUserOn] = useState('')
@@ -63,7 +62,6 @@ function LoginPage() {
               <Route path="/rotina" element={<RotinaPage />} />
               <Route path="/settings" element={<SettingsPage />} />
               <Route path="/rotina-auto" element={<RotinaAuto />} />
-              <Route path="/post" element={<PostPage />} />
           </Routes>
 
         </BrowserRouter> 
@@ -106,7 +104,6 @@ function LoginPage() {
               <Route path="/rotina" element={<RotinaPage />} />
               <Route path="/settings" element={<SettingsPage />} />
               <Route path="/rotina-auto" element={<RotinaAuto />} />
-              <Route path="/post" element={<PostPage />} />
           </Routes>
           <Hideload />
         </BrowserRouter> 
