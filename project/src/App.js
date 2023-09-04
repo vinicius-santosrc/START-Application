@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 
 
 /* FIREBASE IMPORTS*/
-import { auth, provider, signInWithPopup, app } from './systemlogin';
+import { auth, provider, signInWithPopup, app } from './lib/firebase';
 
 
 /* ANOTHER IMPORTS*/
@@ -20,6 +20,7 @@ import HidratacaoPage from './pages/hidratacao'
 import ProlepsePage from './pages/prolepse'
 import RotinaPage from './pages/rotina'
 import RotinaAuto from './pages/rotina-auto';
+import ProlepseStartPage from './pages/applications/prolepse-start';
 
 function LoginPage() {
   const [i_ison, setUserOn] = useState('')
@@ -62,6 +63,7 @@ function LoginPage() {
               <Route path="/rotina" element={<RotinaPage />} />
               <Route path="/settings" element={<SettingsPage />} />
               <Route path="/rotina-auto" element={<RotinaAuto />} />
+              <Route path='/prolepse/start' element={<ProlepseStartPage />} />
           </Routes>
 
         </BrowserRouter> 
@@ -104,6 +106,7 @@ function LoginPage() {
               <Route path="/rotina" element={<RotinaPage />} />
               <Route path="/settings" element={<SettingsPage />} />
               <Route path="/rotina-auto" element={<RotinaAuto />} />
+              <Route path='/prolepse/start' element={<ProlepseStartPage />} />
           </Routes>
           <Hideload />
         </BrowserRouter> 

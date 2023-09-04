@@ -4,7 +4,7 @@ import React, { useCallback } from 'react';
 
 /* ANOTHER IMPORTS*/
 import HeaderApp from '../components/HeaderApp';
-import { app, auth } from '../systemlogin';
+import { app, auth } from '../lib/firebase';
 import { json } from 'react-router-dom';
 import Swal from 'sweetalert2'
 import toHtml from 'string-to-html';

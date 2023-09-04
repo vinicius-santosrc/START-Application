@@ -1292,7 +1292,124 @@ body {
   border-bottom: 1px solid white;
  }
 
+.pc-header-flexbox-prolepse {
+  display: block;
+  display: flex;
+  justify-content: space-between;
+  margin: 50px 120px;
+}
+
+.pc-header-flexbox-prolepse h1 {
+  cursor: pointer;
+}
+
+.pc-header-flexbox-prolepse i {
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+.flex-header-application-prolepse {
+  display: none;
+}
+
+.cronometro-display {
+  margin: 0 auto;
+  align-items: center;
+  font-size: 4vw;
+  cursor: default;
+  margin-top: 0vh;
+}
+
+.cronometro-display-time {
+  display: flex;
+  align-items: center;
+}
+
+
+
+.cronometro-btns {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  text-align: center;
+  gap: 2rem;
+}
+
+.cronometro-btns button {
+  font-size: 1vw;
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  padding: 0.5vw 2vw;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.cronometro-display img {
+  width: 10vw;
+  object-fit: cover;
+  height: 10vw;
+  border-radius: 100%;
+}
+
+.gif-image {
+  margin: auto;
+  width: 100%;
+  text-align: center;
+}
+
+#pausebtn {
+  display: none;
+}
+
+#resume {
+  display: none;
+}
+
+#finalizar {
+  display: none;
+}
+
+.frase-motivacional {
+  margin: auto;
+  position: absolute;
+  bottom: 100px;
+  margin: auto;
+  text-align: center;
+  justify-content: center;
+  left: 0%;
+  right: 0%;
+}
+
+.frase-motivacional h2{
+  font-size: 1.2rem;
+  font-weight: 300;
+  justify-content: center;
+  
+}
+
+.cronometro-btns #finalizar {
+  background-color: red;
+  border: none;
+  color: white;
+}
+
+.cronometro-btns #startbtn {
+  background-color: rgb(44, 200, 20);
+  color: white;
+  border: none;
+}
+
+@media screen and (max-height: 540px) {
+  .gif-image {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 940px) {
+  .pc-header-flexbox-prolepse {
+    display: none;
+  }
   .backbutton {
     display: none;
   }
@@ -2351,4 +2468,71 @@ body {
     font-size: 30px;
   }
 
+  .flex-header-application-prolepse {
+    display: block;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+  }
+
+  .flex-header-application-prolepse i, .flex-header-application-prolepse h1 {
+    font-size: 1.7rem;
+  }
+
+  .cronometro-display {
+    font-size: 2.5rem;
+    padding: 0px 40px;
+  }
+
+  .cronometro-btns {
+    margin-top: 2vh;
+  }
+
+  .cronometro-btns button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+  }
+
+  .cronometro-btns #finalizar {
+    background-color: red;
+    border: none;
+    color: white;
+  }
+
+  .cronometro-btns #startbtn {
+    background-color: rgb(44, 200, 20);
+    color: white;
+    border: none;
+  }
+
+  .frase-motivacional {
+    margin: auto;
+    position: absolute;
+    bottom: 7vh;
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+    left: 0%;
+    right: 0%;
+
+  }
+
+  .cronometro-display img {
+    width: 30vw;
+    object-fit: cover;
+    height: 30vw;
+    border-radius: 100%;
+  }
+  
+  .gif-image {
+    margin: auto;
+    width: 100%;
+    text-align: center;
+  }
+  
 }

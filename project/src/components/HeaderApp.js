@@ -1,5 +1,5 @@
 import React from 'react';
-import { signOutUser, auth } from '../systemlogin';
+import { signOutUser, auth } from '../lib/firebase';
 /* PAGES */
 
 import '../pages/hidratacao';

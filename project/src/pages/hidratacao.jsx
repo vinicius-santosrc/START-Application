@@ -1,7 +1,7 @@
 /* REACT IMPORTS*/
 import React, { useEffect, useState } from 'react';
 /* FIREBASE IMPORTS*/
-import { auth, provider, signInWithPopup, app } from '../systemlogin';
+import { auth, provider, signInWithPopup, app } from '../lib/firebase';
 
 /* ANOTHER IMPORTS*/
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -13,36 +13,7 @@ import '../App.css';
 let date = new Date
 let hora = date.getHours()
 
-if(localStorage.getItem('notify') == 'true') {
-    Notification.requestPermission().then(perm => {
-        if(perm === 'granted') {
-            if(hora % 2 == 0) {
-                if (cont != 1) {
-                    let notification = new Notification('Hora de se hidratar 💧', {
-                        body: `Beba ${localStorage.getItem('water')}ml de água.`,
-                        icon: "favicon.ico"
-                    })
-                }
-                let cont = 1
-            }
-        }
-        else if (perm === 'denied') {
-            if(localStorage.getItem('ignoremsgnot') == 'true') {
-                
-            }
-            else {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Parece que você desativou nossas notificações.',
-                    footer: '<a href="">Como eu posso resolver isso?</a>'
-                }).then(() => {
-                    localStorage.setItem('ignoremsgnot', 'true')
-                })
-            }
-        }
-    })
-}
+
 
 function ativarnotificacoes() {
     const swalWithBootstrapButtons = Swal.mixin({
@@ -100,7 +71,7 @@ function HidratacaoPage() {
                 <div className='block-box-rotinas'>
                     <div className='left-side-page'>
                         <div className='title-page'>
-                            <i className="fa-regular fa-calendar"></i>
+                            <i className="fa-solid fa-droplet"></i>
                             <h1>HIDRATAÇÃO</h1>
                         </div>
                         <div className="content-page-middle">

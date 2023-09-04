@@ -1,6 +1,24 @@
 
 import React from 'react';
 import HeaderApp from '../components/HeaderApp';
+import Swal from 'sweetalert2'
+
+function startprolepsepage() {
+    Swal.fire({
+        title: 'Deseja iniciar o modo Prolepse?',
+        showDenyButton: true,
+        showCancelButton: false,
+        confirmButtonText: 'COMEÇAR',
+        denyButtonText: `VOLTAR`,
+      }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = window.location.origin + '/prolepse/start'
+        } else if (result.isDenied) {
+          
+        }
+      })
+    
+}
 
 function ProlepsePage() {
     return (
@@ -14,12 +32,12 @@ function ProlepsePage() {
                 <div className='block-box-rotinas'>
                     <div className='left-side-page'>
                         <div className='title-page'>
-                            <i className="fa-regular fa-calendar"></i>
+                            <i className="fa-solid fa-bolt"></i>
                             <h1>PROLEPSE</h1>
                         </div>
                         <div className="content-page-middle">
                             <div className='button-info-ativar'>
-                                <button onClick=''>EM BREVE</button>
+                                <button onClick={startprolepsepage}>COMEÇAR</button>
                                 <p>Modo sem distrações: 
                                     <li>Tela em modo foco(congelada).</li>
                                     <li>Cronometro ativo para contabilizar tempo no modo foco.</li>
