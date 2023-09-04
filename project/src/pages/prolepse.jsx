@@ -4,20 +4,7 @@ import HeaderApp from '../components/HeaderApp';
 import Swal from 'sweetalert2'
 
 function startprolepsepage() {
-    Swal.fire({
-        title: 'Deseja iniciar o modo Prolepse?',
-        showDenyButton: true,
-        showCancelButton: false,
-        confirmButtonText: 'COMEÇAR',
-        denyButtonText: `VOLTAR`,
-      }).then((result) => {
-        if (result.isConfirmed) {
-            window.location.href = window.location.origin + '/prolepse/start'
-        } else if (result.isDenied) {
-          
-        }
-      })
-    
+    window.location.href = window.location.origin + '/prolepse/cronometro'
 }
 
 function ProlepsePage() {
@@ -41,7 +28,6 @@ function ProlepsePage() {
                                 <p>Modo sem distrações: 
                                     <li>Tela em modo foco(congelada).</li>
                                     <li>Cronometro ativo para contabilizar tempo no modo foco.</li>
-                                    
                                     </p>
                             </div>
                         </div>

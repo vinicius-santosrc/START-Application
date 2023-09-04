@@ -3,25 +3,22 @@ import React from 'react';
 import HeaderApp from '../../components/HeaderApp';
 
 import HeaderProlepse from './components/HeaderProlepse';
-import Cronometro from './components/Cronometro';
+import ScreenProtectorPage from './components/ScreenProtectorPage';
 
 
-if(window.location.href == window.location.origin + '/prolepse/start') {
+if(window.location.href == window.location.origin + '/prolepse/screenprotect') {
     document.querySelector('body').style.background = 'black'
 }
 
-
-function ProlepseStartPage() {
+export default function ScreenProtector() {
     return (
         <div className="App">
 
             <HeaderProlepse />
             <div className='contents-page'>
-                
-                <Cronometro />
+                <ScreenProtectorPage />
             </div>
         </div>
     )
 }
 
-export default ProlepseStartPage;

@@ -20,7 +20,9 @@ import HidratacaoPage from './pages/hidratacao'
 import ProlepsePage from './pages/prolepse'
 import RotinaPage from './pages/rotina'
 import RotinaAuto from './pages/rotina-auto';
-import ProlepseStartPage from './pages/applications/prolepse-start';
+import CronometroPage from './pages/applications/CronometroPage';
+import ScreenProtector from './pages/applications/ScreenProtector';
+import FocoContagemPage from './pages/applications/FocoContagemPage';
 
 function LoginPage() {
   const [i_ison, setUserOn] = useState('')
@@ -63,8 +65,11 @@ function LoginPage() {
               <Route path="/rotina" element={<RotinaPage />} />
               <Route path="/settings" element={<SettingsPage />} />
               <Route path="/rotina-auto" element={<RotinaAuto />} />
-              <Route path='/prolepse/start' element={<ProlepseStartPage />} />
+              <Route path='/prolepse/cronometro' element={<CronometroPage />} />
+              <Route path='/prolepse/screenprotect' element={<ScreenProtector />} />
+              <Route path='/prolepse/foco' element={<FocoContagemPage />} />
           </Routes>
+          
 
         </BrowserRouter> 
         :
@@ -106,7 +111,9 @@ function LoginPage() {
               <Route path="/rotina" element={<RotinaPage />} />
               <Route path="/settings" element={<SettingsPage />} />
               <Route path="/rotina-auto" element={<RotinaAuto />} />
-              <Route path='/prolepse/start' element={<ProlepseStartPage />} />
+              <Route path='/prolepse/cronometro' element={<CronometroPage />} />
+              <Route path='/prolepse/screenprotect' element={<ScreenProtector />} />
+              <Route path='/prolepse/foco' element={<FocoContagemPage />} />
           </Routes>
           <Hideload />
         </BrowserRouter> 
