@@ -5,7 +5,6 @@ import React from "react";
 if(window.location.href == window.location.origin + '/prolepse/foco') {
     document.querySelector('body').style.background = 'black'
 }
-
 export default function FocoContagemPage() {
     return (
         <div className="App">

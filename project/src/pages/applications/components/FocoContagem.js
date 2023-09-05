@@ -61,7 +61,7 @@ function startcronometro() {
 
             document.querySelector("#segundoscontador").textContent = formatTime(segundos)
             document.querySelector("#minutoscontador").textContent = formatTime(minutos)
-            document.querySelector("#horacontador").textContent = formatTime(horas)
+            document.querySelector("#horacontador").textContent = horas
             document.querySelector("#resume").style.display = 'none'
             
         
@@ -87,7 +87,7 @@ function finalizarcronometro() {
         text: "Você tem certeza que deseja terminar o modo foco?",
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#70FF00',
+        confirmButtonColor: '#10D200',
         cancelButtonColor: '#d33',
         confirmButtonText: 'SIM!',
         cancelButtonText: "Não"
@@ -136,6 +136,9 @@ export default function FocoContagem() {
     return(
         <>
         <div className="cronometro-display">
+            <div className="gif-image">
+                <h4>FOCO - CONTAGEM</h4>
+            </div>
              <div className="cronometro-display-time-pod">
                  <h1 className="tempo" id="horacontador"><input id="horasinput" placeholder="00" type="number" maxLength={2} /></h1>
                  <span className="separador">:</span>

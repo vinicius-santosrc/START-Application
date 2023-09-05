@@ -15,7 +15,7 @@ function gotoHomePage() {
 }
 
 
-export default function HeaderProlepse() {
+export default function HeaderHidratacao() {
     return(
         <>
         <div className='flex-header-application-prolepse'>
@@ -24,7 +24,7 @@ export default function HeaderProlepse() {
             <img id="imageprofileheader" src={auth.currentUser.photoURL} />
         </div>
         <div className='pc-header-flexbox-prolepse'>
-            <h1>START</h1>
+            <h1>STARTWATER</h1>
 
             <i onClick={openbarprolepse} className="fa-solid fa-bars"></i>
         </div>
@@ -34,26 +34,7 @@ export default function HeaderProlepse() {
                 <h1>START</h1>
                 <i></i>
             </div>
-            <section>
-                <h2>MODOS PROLEPSE</h2>
-                <div className='card-modes'>
-                    <div id="fococontagem-card"  className='card-prolepse-nav'>
-                        <a href="./foco">
-                            <h3>FOCO - CONTAGEM</h3>
-                        </a>
-                    </div>
-                    <div id="cronometro-card"  className='card-prolepse-nav'>
-                        <a href="./cronometro">
-                            <h3>CRONÔMETRO</h3>
-                        </a>
-                    </div>
-                    <div id="protetortela-card"  className='card-prolepse-nav'>
-                        <a href="./screenprotect">
-                            <h3>PROTETOR DE TELA</h3>
-                        </a>
-                    </div>
-                </div>
-            </section>
+           
             <section>
                 <h2>OPÇÕES</h2>
                 <div className='card-modes'>

@@ -23,6 +23,7 @@ import RotinaAuto from './pages/rotina-auto';
 import CronometroPage from './pages/applications/CronometroPage';
 import ScreenProtector from './pages/applications/ScreenProtector';
 import FocoContagemPage from './pages/applications/FocoContagemPage';
+import HidratacaoApp from './pages/applications/HidratacaoApp';
 
 function LoginPage() {
   const [i_ison, setUserOn] = useState('')
@@ -68,6 +69,7 @@ function LoginPage() {
               <Route path='/prolepse/cronometro' element={<CronometroPage />} />
               <Route path='/prolepse/screenprotect' element={<ScreenProtector />} />
               <Route path='/prolepse/foco' element={<FocoContagemPage />} />
+              <Route path='/application/hidratacao' element={<HidratacaoApp />} />
           </Routes>
           
 
@@ -114,6 +116,7 @@ function LoginPage() {
               <Route path='/prolepse/cronometro' element={<CronometroPage />} />
               <Route path='/prolepse/screenprotect' element={<ScreenProtector />} />
               <Route path='/prolepse/foco' element={<FocoContagemPage />} />
+              <Route path='/application/hidratacao' element={<HidratacaoApp />} />
           </Routes>
           <Hideload />
         </BrowserRouter> 

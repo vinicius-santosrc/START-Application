@@ -1328,17 +1328,22 @@ body {
 .cronometro-display-time-pod {
   display: flex;
   align-items: center;
+  margin: auto;
+  justify-content: center;
 }
 
 .cronometro-display-time-pod input {
   font-size: 6vw;
-  width: 150px;
+  width: 15vw;
   background-color: transparent;
   color: white;
   font-weight: 500;
   border: none;
   outline: none;
+  margin: auto;
+  text-align: center;
 }
+
 
 .cronometro-display-time-pod input::placeholder {
   font-size: 6vw;
@@ -1510,7 +1515,48 @@ body {
   display: none;
 }
 
+.flexbox-hidratation {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px 100px;
+  margin: auto;
+}
 
+.card-h {
+  background-color: white;
+  color: black;
+  padding: 20px 10px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: 500ms;
+}
+
+.card-h:hover {
+  background-color: rgb(196, 193, 193);
+}
+
+.bottom-cell-hidratacao {
+  display: none;
+}
+
+#bgfooterhidratacao {
+  margin-top: 15vh;
+  width: 100%;
+  object-fit: cover;
+  padding: 10px 0px;
+}
+
+.right-side-hidratacao {
+  text-align: center;
+}
+
+.background-circle {
+  width: 400px;
+  height: 400px;
+  background-color: white;
+  border-radius: 100%;
+}
 
 @media screen and (max-width: 940px) {
   .pc-header-flexbox-prolepse {
@@ -2650,6 +2696,7 @@ body {
     width: 100%;
     height: 100%;
     z-index: 20;
+    overflow: auto;
   }
   
   .headernavbarprolepse {
@@ -2714,6 +2761,8 @@ body {
     color: white;
     font-weight: 500;
     border: none;
+    
+
     outline: none;
   }
   
@@ -2732,4 +2781,66 @@ body {
     }
   }
 
+  .gif-image h4 {
+    margin-top: 10vh;
+    font-size: 1.7rem;
+  }
+  
+  #imageprofileheader {
+    width: 10vw;
+    border-radius: 100%;
+  }
+
+  .bottom-pc-hidratacao {
+    display: none;
+  }
+
+  .bottom-cell-hidratacao {
+    display: block;
+  }
+
+  .flexbox-hidratation {
+    display: block;
+    justify-content: center;
+    text-align: center;
+    padding: 50px 10px;
+    margin: auto;
+  }
+  
+  .card-h {
+    background-color: white;
+    color: black;
+    padding: 20px 10px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 500ms;
+  }
+  
+  .card-h:hover {
+    background-color: rgb(196, 193, 193);
+  }
+  
+  #bgfooterhidratacao {
+    margin-top: 15vh;
+    width: 100%;
+    object-fit: cover;
+    padding: 10px 0px;
+  }
+  
+  .right-side-hidratacao {
+    text-align: center;
+  }
+  
+  .background-circle {
+    width: 350px;
+    height: 350px;
+    background-color: white;
+    border-radius: 100%;
+    margin: auto;
+  }
+
+  .block-rightside {
+    margin-top: 5vh;
+  }
 }

@@ -1,6 +1,6 @@
 import React, { createElement } from 'react';
 import HeaderApp from '../components/HeaderApp';
-import { app, auth } from '../lib/firebase';
+import { app, auth, signOutUser } from '../lib/firebase';
 import { json } from 'react-router-dom';
 import Swal from 'sweetalert2'
 
@@ -16,6 +16,7 @@ function SettingsPage() {
                 <div className='options-account-page'>
                     <a href=""><label><i className="fa-solid fa-address-card"></i> Informações Pessoais</label></a>
                     <a href=""><label><i className="fa-solid fa-key"></i> Segurança da conta</label></a>
+                    <a onClick={signOutUser}><label><i className="fa-solid fa-right-from-bracket"></i> Sair da minha conta</label></a>
                     <a href=""><label><i className="fa-solid fa-circle-minus"></i> Desativar minha conta</label></a>
                     <a href=""><label><i className="fa-solid fa-trash-can"></i> Excluir minha conta</label></a>
                 </div>

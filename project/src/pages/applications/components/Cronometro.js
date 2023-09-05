@@ -75,7 +75,7 @@ export default function Cronometro() {
        <>
        <div className="cronometro-display">
         <div className="gif-image">
-            <img src="https://i.pinimg.com/originals/b5/72/b0/b572b0a218dd64bd95209855b8a661cf.gif" />
+            <h4>CRONÔMETRO</h4>
         </div>
             <div className="cronometro-display-time">
                 <h1 className="tempo" id="hora">00</h1>
