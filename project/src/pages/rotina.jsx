@@ -4,6 +4,7 @@ import { app, auth } from '../lib/firebase';
 import { json } from 'react-router-dom';
 import Swal from 'sweetalert2'
 import { useState } from 'react';
+import { Ring } from '@uiball/loaders'
 
 
 
@@ -170,7 +171,6 @@ function isnewrotine() {
 }
 
 function excluirrotina() {
-    
     const uid = getUrlRotina();
     app.firestore()
     .collection("rotinas")
@@ -186,7 +186,6 @@ function excluirrotina() {
     })
     .catch((e) => {
         alert('ERRO: ' + e)
-        
         window.location.href='./rotina'
     })
 }
@@ -208,6 +207,10 @@ function LoadRotinasLists() {
                 if(app.auth().currentUser.uid == rotinauser){ 
                     document.querySelector('.rotinaedit').style.display = 'flex'
                     var rotina2 = rotinaatual.rotina
+                    
+                    document.querySelector(".topofrotinalists p").textContent = rotinaatual.name
+                    document.querySelector('.nameeditrotina').value = rotinaatual.name
+                    document.querySelector('.desceditrotina').value = rotinaatual.description
                     setOutput(rotina2.map(i => {
                         return(
                             
@@ -229,10 +232,9 @@ function LoadRotinasLists() {
                     
                             
                         )
+                        
                     }))
-                    document.querySelector('.nameeditrotina').value = rotinaatual.name
-                    document.querySelector(".topofrotinalists p").textContent = rotinaatual.name
-                    document.querySelector('.desceditrotina').value = rotinaatual.description
+                    
                 }
                 else {
                     document.querySelector('.rotinaview').style.display = 'block'
@@ -283,11 +285,13 @@ function MyRotinas() {
     .where('user.uid', '==', auth.currentUser.uid)
     .get()
     .then(r => {
+        
         setLink(r.docs.map(res => {
             function gototherotinaleft() {
                 window.location.href = window.location.origin + '/rotina?uid=' + res.id
             }
             return(
+            
                 <>
 
                     <div onClick={gototherotinaleft} id={res.id} className='rotina-input-left'>
@@ -670,6 +674,8 @@ function RotinaPage() {
                                         </tr>
                                         <LoadRotinasLists />
                                     </table>
+                                    
+
                                 </div>
                                
                             </div>
