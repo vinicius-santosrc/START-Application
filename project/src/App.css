@@ -605,6 +605,21 @@ body {
   align-items: center;
 }
 
+.topofrotinas-lists- {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topofrotinas-lists- button{
+  background-color: #70FF00;
+  padding: 10px 60px;
+  font-size: 1.4rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
 .top-rotinaview i {
   font-size: 60px;
   margin-right: 1vw;
@@ -651,11 +666,11 @@ body {
   position: absolute;
   width: 100%;
   height: 200%;
-  background-color: #242424;
-  margin-top: -23vh;
+  background-color: #1B1B1B;
+  top: 0;
   text-align: left;
   z-index: 20;
-  padding: 10vw;
+  padding: 0;
 }
 .rotinaedit-header {
   display: flex;
@@ -669,54 +684,43 @@ body {
 }
 
 .infoofeditrotina {
-  padding: 10px 10vw;
+  padding: 50px 30px;
+  width: 100%;
+  margin-left: 300px;
 }
 
 .infoofeditrotina input{
   width: 100%;
-  height: 4vh;
   outline: none;
   border: none;
-  padding: 10px;
+  padding: 0px;
   border-radius: 10px;
+  font-size: 1.7rem;
+  background-color: transparent;
+  color: white;
+  font-weight: 700;
+}
+
+.infoofeditrotina input.desceditrotina {
+  font-size: 0.8rem;
+  font-weight: 300;
+  margin-bottom: 20px;
 }
 
 .rotina-exist {
-  background-color: rgb(255, 255, 255);
+  background-color: #222121;
   padding: 20px;
-  border-radius: 10px;
-  width: 70%;
+  border-radius: 0px;
+  width: 100%;
   margin: auto;
   height: 23vw;
   overflow-y: auto;
 } 
 
-.componentrotinashow{
-  background-color: lightgray;
-  padding: 20px 20px;
-  border-radius: 0px;
-  color: rgb(30, 30, 30);
-  margin-bottom: 1vh;
-  border-left: none;
-  width: 90%;
-  margin: auto;
-  margin-bottom: 0.5vh;
-  border-radius: 0vw;
-  cursor: pointer;
-}
-
-.rotinaview .componentrotinashow {
-  background-color: lightgray;
-  padding: 20px 20px;
-  border-radius: 0px;
-  color: rgb(30, 30, 30);
-  margin-bottom: 1vh;
-  border-left: none;
-  width: 50%;
-  margin: auto;
-  margin-bottom: 0.5vh;
-  border-radius: 1vw;
-  cursor: pointer;
+.rotina-exist table {
+  width: 100%;
+  justify-content: space-between;
+  text-align: center;
 }
 
 .comecocomponent {
@@ -1494,6 +1498,20 @@ body {
   border: 1px solid red;
 }
 
+.img-rotina {
+  width: 100%;
+  background: white;
+  height: 20vh;
+  margin-bottom: 1vh;
+}
+
+.img-rotina img {
+  width: 100%;
+  height: 20vh;
+  object-fit: cover;
+  
+}
+
 @media screen and (max-height: 540px) {
   .gif-image {
     display: none;
@@ -1556,6 +1574,75 @@ body {
   height: 400px;
   background-color: white;
   border-radius: 100%;
+
+}
+
+.leftsidebar-rotinas {
+  background-color: #101010;
+  width: 300px;
+  height: 100%;
+  padding: 20px;
+  position: fixed;
+  border-right: 1px solid #434343;
+}
+
+.leftsidebar-rotinas section h2 {
+  color: #606060;
+  font-weight: 700;
+  cursor: default;
+}
+.leftsidebar-rotinas .rotina-input-left {
+  color: white;
+  font-weight: 600;
+  padding-left: 10px;
+  display: flex;
+  color: rgb(196, 195, 195);
+  cursor: pointer;
+  transition: 500ms;
+}
+
+.leftsidebar-rotinas .rotina-input-left label {
+  cursor: pointer;
+}
+
+.rotina-input-left:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.titleleftsidebar {
+  padding: 20px 0px;
+  cursor: pointer;
+}
+
+.rotina-input-left i {
+  padding-right: 10px;
+}
+
+.bottomsection {
+  position: absolute;
+  bottom: 100px;
+}
+
+.topofrotinalists {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 50px;
+}
+
+.topofrotinalists i {
+  text-decoration: none;
+  color: white;
+}
+
+.bottomsection h3 {
+  cursor: pointer;
+  transition: 500ms;
+}
+
+.bottomsection h3:hover {
+  color: gray;
 }
 
 @media screen and (max-width: 940px) {
@@ -2171,10 +2258,11 @@ body {
     width: 100%;
     height: 200%;
     background-color: #242424;
-    margin-top: -14vh;
+    margin-top: 0;
+    top: 0;
     text-align: left;
     z-index: 20;
-    padding: 15vw 8vw;
+    padding: 0px 0px;
     
   }
   .rotinaedit-header {
@@ -2193,7 +2281,9 @@ body {
   }
   
   .infoofeditrotina {
-    padding: 30px 0px;
+    padding: 00px 00px;
+    width: 100%;
+    margin-left: 0px;
   }
   
   .infoofeditrotina input{
@@ -2230,17 +2320,25 @@ body {
     margin: auto;
     margin-bottom: 1vh;
     font-size: 11px;
+
   }
 
   .rotina-exist {
-    background-color: rgb(255, 255, 255);
+    background-color: #222121;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 0px;
     width: 100%;
     margin: auto;
     height: 58vh;
+    overflow-x: scroll;
     overflow-y: auto;
   } 
+
+  .rotina-exist table {
+    width: 150%;
+    justify-content: space-between;
+    text-align: center;
+  }
 
   .toppost{
     display: flex;
@@ -2842,5 +2940,37 @@ body {
 
   .block-rightside {
     margin-top: 5vh;
+  }
+
+  .leftsidebar-rotinas {
+    display: none;
+  }
+
+  .topofrotinalists {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0px;
+    padding: 15px;
+    background-color: #222222;
+    border-bottom: 1px solid rgb(186, 186, 186);
+    margin-bottom: 20px;
+  }
+
+  .topofrotinalists .fa-angle-right{
+    display: none;
+  }
+
+  .topofrotinas-lists- button{
+    background-color: #70FF00;
+    padding: 5px 20px;
+    font-size: 0.8rem;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .topofrotinas-lists- {
+    padding: 10px;
   }
 }

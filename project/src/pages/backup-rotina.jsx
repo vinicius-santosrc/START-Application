@@ -206,12 +206,12 @@ function LoadRotinasLists() {
                 let output = ''
     
                 if(app.auth().currentUser.uid == rotinauser){ 
-                    document.querySelector('.rotinaedit').style.display = 'flex'
+                    document.querySelector('.rotinaedit').style.display = 'block'
                     var rotina2 = rotinaatual.rotina
                     setOutput(rotina2.map(i => {
                         return(
-                            
-               
+                            <div class="componentrotinashow">
+                                <table>
                                     <tr>
                                         <td>
                                             <input type="checkbox" />
@@ -226,12 +226,11 @@ function LoadRotinasLists() {
                                             <p>{JSON.stringify(i.desc).replace(/"/g, '')}</p>
                                         </td>
                                     </tr>
-                    
-                            
+                                </table>
+                            </div>
                         )
                     }))
                     document.querySelector('.nameeditrotina').value = rotinaatual.name
-                    document.querySelector(".topofrotinalists p").textContent = rotinaatual.name
                     document.querySelector('.desceditrotina').value = rotinaatual.description
                 }
                 else {
@@ -245,9 +244,9 @@ function LoadRotinasLists() {
                         return(
                             <div className="componentrotinashow">
                                 <div>
-                                    <h2>[<span className="comecocomponent">{JSON.stringify(i.start).replace(/"/g, '')}</span> - <span class="fimcomponente">{JSON.stringify(i.end).replace(/"/g, '')}</span>]: {JSON.stringify(i.name).replace(/"/g, '')}</h2>
+                                    <h2>[<span className="comecocomponent">${JSON.stringify(i.start).replace(/"/g, '')}</span> - <span class="fimcomponente">${JSON.stringify(i.end).replace(/"/g, '')}</span>]: ${JSON.stringify(i.name).replace(/"/g, '')}</h2>
                                 </div>
-                                <p>{JSON.stringify(i.desc).replace(/"/g, '')}</p>
+                                <p>${JSON.stringify(i.desc).replace(/"/g, '')}</p>
                             </div>
                             )
                             }
@@ -274,32 +273,6 @@ function LoadRotinasLists() {
     }
     
     
-}
-
-function MyRotinas() {
-    const [links, setLink] = useState("") 
-    app.firestore()
-    .collection("rotinas")
-    .where('user.uid', '==', auth.currentUser.uid)
-    .get()
-    .then(r => {
-        setLink(r.docs.map(res => {
-            function gototherotinaleft() {
-                window.location.href = window.location.origin + '/rotina?uid=' + res.id
-            }
-            return(
-                <>
-
-                    <div onClick={gototherotinaleft} id={res.id} className='rotina-input-left'>
-                        <label><i className="fa-solid fa-angle-right"></i> 
-                            {res.data().name}
-                        </label>
-                    </div>
-                </>
-            )
-        }))
-    })
-    return(links)
 }
 
 function formatDate(date) {
@@ -623,56 +596,42 @@ function RotinaPage() {
             <div className='contents-page'>
                 <div className="background" onClick={fecharorganizarrotina}></div>
                 <div className='rotinaedit'>
-                    <div className='leftsidebar-rotinas'>
-                        <h1 className='titleleftsidebar' onClick={fechareditrotina}>START</h1>
-                        <section>
-                            <h2>Suas rotinas</h2>
-                                <div className='rotinalist-user-leftside'>
-                                <MyRotinas />
-                                </div>
-                        </section>
-                        <section>
-                            <h2>Social</h2>
-                            <div className='rotina-input-left'>
-                                <label onClick={criarpostagem}><i className="fa-solid fa-share-from-square"></i> Compartilhar</label>
-                            </div>
-                        </section>
-                        <section className='bottomsection'>
-                            <h3><i className="fa-regular fa-calendar-days"></i> Modelos prontos</h3>
-                            <h3 onClick={excluirrotina}><i className="fa-solid fa-trash-can"></i> Excluir essa rotina</h3>
-                        </section>
+                    <div className='rotinaedit-header'>
+                        <div className='titleedit'>
+                            <i className="fa-solid fa-pen-ruler"></i>
+                            <h1>EDITOR DE ROTINAS</h1>
+                        </div>
+                        <i onClick={fechareditrotina} className="fa-solid fa-xmark"></i>
                     </div>
+                    <p>Edite sua rotina existente</p>
                        <div className='infoofeditrotina'>
-                        <div className='topofrotinalists'>
-                            <a href="./rotina"><i className="fa-solid fa-chevron-left"></i></a>
-                            <a href="#"><i className="fa-solid fa-angle-right"></i></a>
-                            <p>Template</p>
-                        </div>
-                        <div className='img-rotina'>
-                            <img src="" alt='rotina-background' />
-                        </div>
-                            <div className='topofrotinas-lists-'>
-                            <div>
-                            <input className='nameeditrotina' placeholder='' /> <br />
+                            <div className='itemofrotina'>
+                                <label>Nome da Rotina: </label><br />
+                                <input className='nameeditrotina' placeholder='' /> <br />
+                            </div>
+                            <div className='itemofrotina'>
+                            <label>Descrição: </label><br />
                             <input className='desceditrotina' placeholder='' /><br />
                             </div>
-                            <button onClick={salvarRotina}>SALVAR</button>
-
+                            <label>Rotina</label><br />
+                            <div className='rotina-exist'>
+                                <table>
+                                <tr>
+                                    <td>CHECK</td>
+                                    <td>NAME</td>
+                                    <td>HORÁRIO</td>
+                                    <td>DESCRIÇÃO</td>
+                                </tr>
+                                </table>
+                                <LoadRotinasLists />
                             </div>
-                            <div>
-                                <div className='rotina-exist'>
-                                    <table>
-                                        <tr>
-                                            <td>CHECK</td>
-                                            <td>Nome da tarefa</td>
-                                            <td>Horário</td>
-                                            <td>Descrição</td>
-                                        </tr>
-                                        <LoadRotinasLists />
-                                    </table>
-                                </div>
-                               
-                            </div>
+                       </div>
+                       <div className='btn-share-div'>
+                        <button className='btn-share-rotina' onClick={criarpostagem} >COMPARTILHAR NO FEED</button>
+                       </div>
+                    <div className='buttonseditrotina'>
+                        <button className='btn-delete-rotine' onClick={excluirrotina}>EXCLUIR ROTINA</button>
+                        <button className='btn-save-rotina' onClick={salvarRotina}>SALVAR</button>
                     </div>
                         
                 </div>

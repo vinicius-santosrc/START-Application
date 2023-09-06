@@ -23,8 +23,8 @@ export default function LeftSideHidratacaoBody() {
                 <div className="background-circle"></div>
                     <div className="body-target"></div>
                     <div className="body-info-target">
-                        <progress value={TotalOfItems()} max={2000} />
-                        <p>{TotalOfItems()}ml de 2.000ml</p>
+                        <progress value={TotalOfItems()} max={2200} />
+                        <p>{TotalOfItems()}ml de 2.200ml</p>
                     </div>
             </div>
         </>
